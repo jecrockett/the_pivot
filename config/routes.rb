@@ -30,5 +30,5 @@ Rails.application.routes.draw do
   post "update_quantity", to: "cart_staches#update_quantity"
   get "/about", to: "static#about"
 
-  root "categories#index"
+  root "welcome#home"
 end

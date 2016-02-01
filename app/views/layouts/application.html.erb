@@ -1,50 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LittleShopPrivateStache</title>
+  <title>DreamBuilder</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Montserrat|Kameron|Unica+One' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="nav-wrapper">
-    <div class="right-nav">
-      <% if current_user %>
-        <%= link_to "Logout", logout_path, method: :delete, class: "right brown-text login-logout" %>
-        <%= link_to "Orders", orders_path, class:"right brown-text login-logout" %>
-        <%= link_to "Account", dashboard_path, class:"right brown-text login-logout" %>
-        <%= link_to "Stacheboard", admin_dashboard_path, class:"right brown-text login-logout" if current_admin? %>
-      <% else %>
-        <%= link_to "Login", login_path, id: "Login", class:"right brown-text login-logout" %>
-        <% unless request.path == new_user_path || request.path == login_path %>
-          <%= link_to "Create Account", new_user_path, class: "right brown-text login-logout" %>
-          <% end %>
-      <% end %>
-      <% if current_user %>
-      <div id="credentials" class="brown-text hide-on-small-only">Logged In As: <%= current_user.username %> </div>
-      <% end %>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">DreamBuilder</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Causes</a></li>
+        <li><a href="badges.html">Login</a></li>
+        <li><a href="collapsible.html">Create Account</a></li>
+      </ul>
     </div>
-
-    <div class="left-nav">
-      <%= link_to "Categories", categories_path, class:"brown-text fixed" %>
-      <%= link_to "Staches", staches_path, class:"brown-text fixed" %>
-      <% unless request.path == cart_path %>
-      <div class="cart_box">
-        <a id="View Cart" href="/cart"><i class="material-icons shoppingcart black-text">shopping_cart</i></a>
-        <a class="cart_total" href="/cart">(<%= @cart.total_quantity %>)</a>
-      </div>
-      <% end %>
-    </div>
-    <div class="logo-box">
-      <a href="/"><img class="responsive-img" src=" <%=random_stache%> " id="logo"/></a>
-    </div>
-  </div>
-
+  </nav>
 <% flash.each do |type, msg| %>
   <%= content_tag :div, sanitize(msg), class: "flash_#{type} flash" %>
 <% end %>
@@ -54,11 +30,11 @@
 <footer class="footer-bar">
   <div class="footer-content">
     <p class="black-text text-lighten-5 footer-content hide-on-small-only">
-      put some hair on your lip...
+       ...to the moon!!!!!!
     </p>
-    <a href="/"><h5 class="white-text footer-content">Private Stache  </h5></a>
+    <a href="/"><h5 class="white-text footer-content">Dream Builder</h5></a>
   </div>
-  <a class="white-text footer-link" href="/about">About Us</a>
+  <a class="white-text footer-link" href="/about">Contact</a>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
