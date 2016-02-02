@@ -288,3 +288,15 @@ img.user_image {
   width: 100%;
   z-index: 0;
 }
+/*----ABOUT----*/
+.admin-data {
+  margin-top: 40px;
+}
+.admin-btn {
+  display: inline-block;
+  margin: auto;
+  width: 150px;
+}
+.collection a.collection-item {
+  background: lightgrey;
+}
