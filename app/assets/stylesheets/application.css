@@ -315,3 +315,16 @@ img.user_image {
 .cause-stats-container span {
   font-size: 30px;
 }
+
+/*----ABOUT----*/
+.admin-data {
+  margin-top: 40px;
+}
+.admin-btn {
+  display: inline-block;
+  margin: auto;
+  width: 150px;
+}
+.collection a.collection-item {
+  background: lightgrey;
+}
