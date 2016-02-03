@@ -291,24 +291,27 @@ img.user_image {
 
 /* CAUSE SHOW */
 
+#cause-card {
+  min-height: 600px;
+}
+
 .cause-info-container {
   margin: 20px 0;
-  max-height: 600px;
+  min-height: 400px;
 }
 
 .cause-info-container img {
   margin: 10px auto;
 }
 
-.cause-details-container {
-  margin: 0px auto;
-  margin-bottom: 80px;
+.cause-stats-container {
+  margin: 50px 0 80px 0;
 }
 
-.cause-details-container p {
+.cause-stats-container p {
   padding-top: 40px;
 }
 
-.cause-details-container span {
+.cause-stats-container span {
   font-size: 30px;
 }
