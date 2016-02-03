@@ -288,6 +288,34 @@ img.user_image {
   width: 100%;
   z-index: 0;
 }
+
+/* CAUSE SHOW */
+
+#cause-card {
+  min-height: 600px;
+}
+
+.cause-info-container {
+  margin: 20px 0;
+  min-height: 400px;
+}
+
+.cause-info-container img {
+  margin: 10px auto;
+}
+
+.cause-stats-container {
+  margin: 50px 0 80px 0;
+}
+
+.cause-stats-container p {
+  padding-top: 40px;
+}
+
+.cause-stats-container span {
+  font-size: 30px;
+}
+
 /*----ABOUT----*/
 .admin-data {
   margin-top: 40px;
