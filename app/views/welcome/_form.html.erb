@@ -1,0 +1,28 @@
+<div class="container">
+  <%= form_for([current_user, @cause], html: {multipart: true}) do |f| %>
+    <ul>
+    <% @post.errors.full_messages.each do |error| %>
+      <li> <%= error %> </li>
+    <% end %>
+    </ul>
+    <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Choose a category" }, class: "browser-default" %>
+
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :cols => "10", :rows => "10", :style => "margin: 0px; width: 508px; height: 249px;" %>
+
+      <%= f.label :goal %><br />
+      <%= f.text_field :goal %>
+      <br>
+
+      <%= f.label :image, "Attach an image" %>
+      <%= f.file_field :image %>
+
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+
+      <%= f.submit "Submit", class: "waves-effect waves-light btn" %>
+
+  <% end %>
+</div>
