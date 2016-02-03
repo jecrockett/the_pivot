@@ -300,3 +300,11 @@ img.user_image {
 .collection a.collection-item {
   background: lightgrey;
 }
+.donations-box {
+  max-height: 200px;
+  overflow-y: auto;
+}
+.pending-box {
+  max-height: 300px;
+  overflow-y: auto;
+}
