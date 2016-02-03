@@ -15,25 +15,12 @@
   </a>
 <% end %> -->
 
-<div class="row">
 
-      <div class="col s4">
-        <div class="card-panel teal">
-          <span class="white-text">CATEGORY
-          </span>
-        </div>
+<%= link_to category_path(category) do %>
+    <div class="col s4">
+      <div class="card-panel teal">
+        <span class="white-text">Category Name
+        </span>
       </div>
-      <div class="col s4">
-        <div class="card-panel teal">
-          <span class="white-text">CATEGORY
-          </span>
-        </div>
-      </div>
-      <div class="col s4">
-        <div class="card-panel teal">
-          <span class="white-text">CATEGORY
-          </span>
-        </div>
-      </div>
-
-</div>
+    </div>
+<% end %>
