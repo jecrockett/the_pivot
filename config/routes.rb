@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#show"
   post "update_quantity", to: "cart_staches#update_quantity"
   get "/about", to: "static#about"
+  get "/previewadmin", to: "welcome#admin"
 
   root "welcome#home"
 end
