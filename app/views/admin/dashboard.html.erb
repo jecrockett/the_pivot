@@ -3,63 +3,25 @@
   <%= link_to "Create New Stache", new_admin_stache_path, class: "btn light-green darken-4" %>
   <%= link_to "View All Staches", admin_staches_path, class: "btn light-green darken-4" %>
   <%= link_to "View All Categories", admin_categories_path, class: "btn light-green darken-4" %>
-  <div class="container">
-    <h5 class="center">Order Statuses</h5>
-    <%= bar_chart Order.order_status_count, discrete: true,
-    colors: ["#33691e"],
-    library: { backgroundColor: "transparent",
-               hAxis: {title: "Frequency"}} %>
-  </div>
-  <h5 class="center">All Orders</h5>
-  <a class='dropdown-button btn right light-green darken-3' href='#'
-      data-activates='dropdown1'>Filter Order Status</a>
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><%= link_to "All", admin_dashboard_path,
-            class: "light-green-text darken-4-text" %></li>
-    <li><%= link_to "Ordered", admin_dashboard_path(status: "ordered"),
-            class: "light-green-text darken-4-text" %></li>
-    <li><%= link_to "Paid", admin_dashboard_path(status: "paid"),
-            class: "light-green-text darken-4-text" %></li>
-    <li><%= link_to "Completed", admin_dashboard_path(status: "completed"),
-            class: "light-green-text darken-4-text" %></li>
-    <li><%= link_to "Cancelled", admin_dashboard_path(status: "cancelled"),
-            class: "light-green-text darken-4-text" %></li>
-  </ul>
 
+  <h5 class="center">All Donations</h5>
   <table>
     <thead>
       <tr>
-          <th data-field="id">Order Number</th>
-          <th data-field="status">Status</th>
-          <th data-field="update-status">Change Status:</th>
+          <th data-field="date">Date</th>
+          <th data-field="amount">Amount</th>
+          <th data-field="cause">Cause</th>
+          <th data-field="user">User</th>
       </tr>
     </thead>
 
     <tbody>
       <% @orders.each do |order| %>
-      <tr id=<%="order-#{order.id}"%>>
-        <td><%= link_to "Order-#{order.id}", admin_order_path(order),
-                id: "order-#{order.id}-link",
-                class: "btn light-green darken-4" %></td>
-        <td><%= order.status.capitalize %></td>
-        <td>
-          <% if order.ordered? %>
-            <%= link_to "Cancel", admin_cancel_order_path(order_id: order.id),
-                method: :put, id: "order-#{order.id}-cancel",
-                class: "btn light-green darken-4" %>
-            <%= link_to "Mark As Paid",
-                admin_paid_order_path(order_id: order.id), method: :put,
-                id: "order-#{order.id}-paid", class: "btn light-green darken-4" %>
-          <% end %>
-          <% if order.paid? %>
-            <%= link_to "Cancel", admin_cancel_order_path(order_id: order.id),
-                method: :put, id: "order-#{order.id}-cancel",
-                class: "btn light-green darken-4" %>
-            <%= link_to "Mark As Complete",
-                admin_complete_order_path(order_id: order.id), method: :put,
-                id: "order-#{order.id}-complete", class: "btn light-green darken-4" %>
-          <% end %>
-        </td>
+      <tr id="table-row">
+        <td>01/01/2016</td>
+        <td>$1,000</td>
+        <td>Wireless Wires</td>
+        <td>GenerousGuy</td>
       </tr>
       <% end %>
     </tbody>

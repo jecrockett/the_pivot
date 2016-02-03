@@ -1,8 +1,8 @@
-<div class="row">
-  <div class="col s12 m6">
+<div class="row container">
+  <div class="col s12">
     <div class="card white darken-1">
-      <div class="card-content brown-text">
-        <span class="card-title"><%= @stache.name %></span>
+      <div>
+        <h3 class="top-space center"><%= @stache.name %></h3>
         <p><%= @stache.description %></p>
         <% unless @stache.categories.empty? %>
         Categories:
@@ -18,12 +18,3 @@
       </div>
     </div>
   </div>
-
-  <div class="col s12 m6">
-    <div class="preview">
-      <div class="card-image">
-        <img src="<%= @stache.image_url %>">
-      </div>
-    </div>
-  </div>
-</div>

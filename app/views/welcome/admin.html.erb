@@ -1,0 +1,37 @@
+<div id="admin-orders-table" class="container center-align">
+  <h4 class="center-align hoverable">Admin Dashboard</h4>
+  <%= link_to "View Active Causes", new_admin_stache_path, class: "btn admin-btn" %>
+  <%= link_to "View All Users", admin_staches_path, class: "btn admin-btn" %>
+  <div class="admin-data row">
+    <div class="col s12 m8 l8">
+      <h5 class="center">All Donations</h5>
+      <table>
+        <thead>
+          <tr>
+              <th data-field="date">Date</th>
+              <th data-field="amount">Amount</th>
+              <th data-field="cause">Cause</th>
+              <th data-field="user">User</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="table-row">
+            <td>01/01/2016</td>
+            <td>$1,000</td>
+            <td>Wireless Wires</td>
+            <td>GenerousGuy</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col s12 m4 l4">
+      <h5 class="center">Pending Causes</h5>
+      <div class="collection">
+        <a href="#!" class="collection-item">Wireless Wires</a><p class="btn">Accept</p><p class="btn">Reject</p>
+        <a href="#!" class="collection-item">Magic</a><p class="btn">Accept</p><p class="btn">Reject</p>
+        <a href="#!" class="collection-item">Cereal Machine</a><p class="btn">Accept</p><p class="btn">Reject</p>
+        <a href="#!" class="collection-item">Unicorns</a><p class="btn">Accept</p><p class="btn">Reject</p>
+      </div>
+    </div>
+  </div>
+</div>
