@@ -1,0 +1,35 @@
+<div id="cause-card" class="card row">
+  <div class="card-content white darken-1">
+    <h3 class="col s12 center-align"> <%= @cause.title %></h3>
+    <div class="cause-info-container col s8">
+      <div class="cause-img-container valign-wrapper center-align">
+        <%= image_tag("http://2.bp.blogspot.com/_h4tLF5wFv0Q/RaGGhc9VF4I/AAAAAAAAAOw/tNXjEPlMx8I/s320/Picture+1.png", class: "valign") %>
+      </div>
+      <p>
+        <%= @cause.description %>
+      </p>
+    </div> <!-- end of img and description column -->
+    <div class="col s4 center">
+      <div class="cause-stats-container center row">
+        <div class="col s6">
+          <p>Supporters:</p>
+          <span>1</span>
+          <p>Donations:</p>
+          <span>1</span>
+        </div>
+        <div class="col s6">
+          <p>Amount Raised:</p>
+          <span>$100</span>
+          <p>Target Goal:</p>
+          <span>$500</span>
+        </div>
+      </div>
+      <div class="input-field">
+        <!-- form for updating a cause will go here. placeholder input field -->
+        <input id="donation_amount" type="text">
+        <label for="donation_amount">Donation Amount ($)</label>
+        <%= link_to "FUND THIS DREAM", "#", class: "btn light-green darken-4" %>
+      </div> <!-- end of donation form -->
+    </div> <!-- end of second cause card column -->
+  </div> <!-- end of card content -->
+</div> <!-- end of card row -->

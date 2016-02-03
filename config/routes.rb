@@ -13,14 +13,18 @@ Rails.application.routes.draw do
     put "activate_stache", to: "staches#activate"
   end
 
-  resources :staches, only: [:index, :show] do
-    get "stached", to: "staches#stached"
-  end
+
 
   resources :cart_staches, only: [:create, :destroy]
   resource :cart, only: [:show]
   resources :categories, only: [:index, :show]
   resources :users, only: [:new, :create, :edit, :update]
+
+  namespace :users, path: ':user', as: :user do
+    resources :causes, only: [:index, :show]
+  end
+
+
   resources :orders, only: [:index, :show, :new, :create]
 
   get "/login", to: "sessions#new"

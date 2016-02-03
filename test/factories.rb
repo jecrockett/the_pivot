@@ -1,5 +1,11 @@
 # This will guess the User class
-FactoryGirl.define do
+FactoryGirl.define do  factory :cause do
+    title "MyString"
+description "MyText"
+image_url "MyString"
+goal 1
+  end
+
   factory :user do
     sequence(:username) { |n| "User#{n}" }
     sequence(:password) { |n| "password#{n}" }
