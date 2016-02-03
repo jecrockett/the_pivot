@@ -1,12 +1,12 @@
 <div id="cause-card" class="card row">
   <div class="card-content white darken-1">
-    <h3 class="col s12 center-align">Automatic Dispensing Cereal Bowl</h3>
+    <h3 class="col s12 center-align"> <%= @cause.title %></h3>
     <div class="cause-info-container col s8">
       <div class="cause-img-container valign-wrapper center-align">
         <%= image_tag("http://2.bp.blogspot.com/_h4tLF5wFv0Q/RaGGhc9VF4I/AAAAAAAAAOw/tNXjEPlMx8I/s320/Picture+1.png", class: "valign") %>
       </div>
       <p>
-        The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
+        <%= @cause.description %>
       </p>
     </div> <!-- end of img and description column -->
     <div class="col s4 center">
