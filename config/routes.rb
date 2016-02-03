@@ -30,10 +30,7 @@ Rails.application.routes.draw do
   post "update_quantity", to: "cart_staches#update_quantity"
   get "/about", to: "static#about"
   get "/previewadmin", to: "welcome#admin"
-<<<<<<< HEAD
   get "/new", to: "welcome#new_user"
-=======
->>>>>>> master
 
   root "welcome#home"
 end
