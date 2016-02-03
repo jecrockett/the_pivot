@@ -1,5 +1,5 @@
 class StachesController < ApplicationController
-  helper :headshot
+  # helper :headshot
 
   def index
     @staches = Stache.all
