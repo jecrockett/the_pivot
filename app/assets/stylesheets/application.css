@@ -288,3 +288,27 @@ img.user_image {
   width: 100%;
   z-index: 0;
 }
+
+/* CAUSE SHOW */
+
+.cause-info-container {
+  margin: 20px 0;
+  max-height: 600px;
+}
+
+.cause-info-container img {
+  margin: 10px auto;
+}
+
+.cause-details-container {
+  margin: 0px auto;
+  margin-bottom: 80px;
+}
+
+.cause-details-container p {
+  padding-top: 40px;
+}
+
+.cause-details-container span {
+  font-size: 30px;
+}

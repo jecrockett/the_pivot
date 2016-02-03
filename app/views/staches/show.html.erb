@@ -1,6 +1,3 @@
-<%= render "stache_and_sales_content" %>
-<% if current_user %>
-  <%= render "stache_cam" %>
-<% else %>
-  <%= render "sign_up" %>
-<% end %>
+<div class="container">
+  <%= render partial: '/staches/_cause_show_card' %>
+</div>
