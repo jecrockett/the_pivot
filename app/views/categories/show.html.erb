@@ -2,49 +2,9 @@
   <br>
   <h4 class="center"> <%= @category.title %> </h4><br>
   <div class="row">
-    <div class="col s4">
-      <div class="card medium">
-        <div class="card-image">
-          <img src="https://s-media-cache-ak0.pinimg.com/736x/d1/55/6c/d1556c08f2313ec2cbc51fdd1d7f7024.jpg">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>Cause Content</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-    <div class="col s4">
-      <div class="card medium">
-        <div class="card-image">
-          <img src="https://s-media-cache-ak0.pinimg.com/736x/d1/55/6c/d1556c08f2313ec2cbc51fdd1d7f7024.jpg">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>Cause Content</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-    <div class="col s4">
-      <div class="card medium">
-        <div class="card-image">
-          <img src="https://s-media-cache-ak0.pinimg.com/736x/d1/55/6c/d1556c08f2313ec2cbc51fdd1d7f7024.jpg">
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>Cause Content</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
+    <%= render partial: "/categories/cause" %>
   </div>
+
   <div class="center">
     <ul class="pagination">
       <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
