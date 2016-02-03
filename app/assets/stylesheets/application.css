@@ -379,3 +379,12 @@ h3 span {
 .collection a.collection-item {
   background: lightgrey;
 }
+
+.donations-box {
+  max-height: 200px;
+  overflow-y: auto;
+}
+.pending-box {
+  max-height: 300px;
+  overflow-y: auto;
+}

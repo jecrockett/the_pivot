@@ -4,6 +4,9 @@ class WelcomeController < ApplicationController
   end
 
   def admin
+  end
 
+  def new_user
+    @user = User.new
   end
 end
