@@ -4,6 +4,7 @@ class Seed
     generate_users
     generate_categories
     generate_causes
+    generate_donations
     # generate_items
     # generate_orders
   end
@@ -49,6 +50,18 @@ class Seed
       category_id: Category.pluck(:id).sample
       )
     puts "Cause #{i}: #{cause.title} - #{cause.user} created!"
+    end
+  end
+
+  def generate_donations
+    Cause.all.each do |cause|
+      5.times do |i|
+        donation = Donation.create(amount: rand(1..200),
+                                   user_id: User.pluck(:id).sample,
+                                   cause_id: cause.id)
+        cause.donations << donation
+        puts "#{cause.title} received #{cause.donations.last.amount} dollars!"
+      end
     end
   end
 

@@ -25,10 +25,19 @@
         </div>
       </div>
       <div class="input-field">
-        <!-- form for updating a cause will go here. placeholder input field -->
-        <input id="donation_amount" type="text">
+        <%= form_for(@donation) do |f| %>
+
+          <%= render "shared/error_messages", object: f.object %>
+
+          <%= f.label :amount %>
+          <%= f.text_field :amount %>
+          <%= f.hidden_field :user_id, :value => current_user_id %>
+          <%= f.hidden_field :cause_id, :value => @cause.id %>
+          <%= f.submit "Fund This Dream", class: "wave-effect waves-light btn light-green darken-4" %>
+        <% end  %>
+        <!-- <input id="donation_amount" type="text">
         <label for="donation_amount">Donation Amount ($)</label>
-        <%= link_to "FUND THIS DREAM", "#", class: "btn light-green darken-4" %>
+        <%= link_to "FUND THIS DREAM", "#", class: "btn light-green darken-4" %> -->
       </div> <!-- end of donation form -->
     </div> <!-- end of second cause card column -->
   </div> <!-- end of card content -->

@@ -9,8 +9,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      path = redirect_path(user_path(@user))
+      session[:attempted_donation] = nil
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to path
     else
       render :new
     end
@@ -35,7 +37,11 @@ class UsersController < ApplicationController
 
   private
 
+  def redirect_back_or(default)
+    session[:attempted_donation] || default
+  end
+
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 end
