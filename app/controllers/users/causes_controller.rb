@@ -1,6 +1,7 @@
 class Users::CausesController < ApplicationController
   def show
     @cause = Cause.find(params[:id])
+    @donation = Donation.new
   end
 
   def index
@@ -19,6 +20,9 @@ class Users::CausesController < ApplicationController
       flash.now[:notice] = "Uh oh! You're not done dreaming. :`("
       render :new
     end
+  end
+
+  def update
   end
 
   private

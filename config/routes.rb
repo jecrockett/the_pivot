@@ -13,17 +13,13 @@ Rails.application.routes.draw do
     put "activate_stache", to: "staches#activate"
   end
 
-
-
-  resources :cart_staches, only: [:create, :destroy]
-  resource :cart, only: [:show]
+  resources :donations, only: [:create]
   resources :categories, only: [:index, :show]
   resources :users, only: [:new, :create, :edit, :update, :show]
 
   namespace :users, path: ':user', as: :user do
     resources :causes, only: [:index, :show, :new, :create]
   end
-
 
   resources :orders, only: [:index, :show, :new, :create]
 

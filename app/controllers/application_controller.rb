@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :random_stache, :current_admin?
+  helper_method :current_user, :random_stache, :current_admin?, :current_user_id
   protect_from_forgery with: :exception
   before_action :set_cart
   before_action :store_location
@@ -8,9 +8,13 @@ class ApplicationController < ActionController::Base
     session[:forwarding_url] = request.path if request.get?
   end
 
-  def redirect_back_or(default = staches_path)
-    redirect_to session[:forwarding_url] || default
-    session.delete(:forwarding_url)
+  # def redirect_back_or(default = staches_path)
+  #   redirect_to session[:forwarding_url] || default
+  #   session.delete(:forwarding_url)
+  # end
+
+  def redirect_path(default)
+    session[:attempted_donation] || default
   end
 
   def set_cart
@@ -19,6 +23,10 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def current_user_id
+    current_user ? current_user.id : nil
   end
 
   def current_user_guard

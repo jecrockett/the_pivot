@@ -1,5 +1,10 @@
 # This will guess the User class
-FactoryGirl.define do  factory :cause do
+FactoryGirl.define do  factory :donation do
+    user nil
+cause nil
+amount 1
+  end
+  factory :cause do
     title "MyString"
 description "MyText"
 image_url "MyString"
