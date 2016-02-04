@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :orders
-  has_many :headshot_photos, :as => :capturable
+  has_many :causes
   validates :username, presence: true
   validates :email, presence: true, uniqueness: true
   enum role: %w(default admin)
