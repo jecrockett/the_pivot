@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      login_redirect
+      login_redirect(user)
     else
       flash[:error] = "Invalid username or password"
       redirect_to login_path
@@ -18,13 +18,13 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def login_redirect
+  def login_redirect(user)
     if session[:want_to_checkout]
       redirect_to new_order_path
     elsif current_admin?
       redirect_to admin_dashboard_path
     else
-      redirect_to dashboard_path
+      redirect_to user_path(user)
     end
   end
 end
