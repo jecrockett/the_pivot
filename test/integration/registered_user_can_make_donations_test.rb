@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class RegisteredUserCanMakeDonationsTest < ActionDispatch::IntegrationTest
-  test "the truth" do
+  test "registered user can make a donation" do
     user = users(:carl)
     category = categories(:tech)
     cause = causes(:colonize_moon)
