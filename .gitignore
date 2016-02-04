@@ -12,5 +12,4 @@
 !/log/.keep
 /tmp
 .byebug_history
-/public/headshots
 /coverage

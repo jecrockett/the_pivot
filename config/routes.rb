@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/about", to: "static#about"
 
-  root "welcome#home"
+  root "static#home"
 end
