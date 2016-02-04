@@ -10436,7 +10436,7 @@ return jQuery;
       return event.result !== false;
     },
 
-    // Default confirm dialog, may be overridden with custom confirm dialog in $.rails.confirm
+    // Default confirm dialog, may be overridden with custom confirm diaLogin $.rails.confirm
     confirm: function(message) {
       return confirm(message);
     },
