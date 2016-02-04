@@ -1,25 +1,7 @@
-<!-- <% unless category.staches.empty? %>
-  <a href="<%= category_path(category) %>">
-    <div class="col s12 m6">
-      <div class="preview">
-        <div class="card-content">
-          <div class="card-image">
-            <img src= <%= category.staches.first.image_url %> >
-          </div>
-          <div class="card-content center category-label">
-            <%= category.title %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-<% end %> -->
-
-
 <%= link_to category_path(category) do %>
     <div class="col s4">
       <div class="card-panel teal">
-        <span class="white-text">Category Name
+        <span class="white-text"><%= category.title %>
         </span>
       </div>
     </div>
