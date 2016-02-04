@@ -1,11 +1,11 @@
 <div class="container">
   <%= form_for([current_user, @cause], html: {multipart: true}) do |f| %>
     <ul>
-    <% @post.errors.full_messages.each do |error| %>
+    <% @cause.errors.full_messages.each do |error| %>
       <li> <%= error %> </li>
     <% end %>
     </ul>
-    <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Choose a category" }, class: "browser-default" %>
+    <%= f.collection_select :category_id, Category.all, :id, :title, { prompt: "Choose a category" }, class: "browser-default" %>
 
       <%= f.label :title %><br />
       <%= f.text_field :title %>
@@ -16,9 +16,9 @@
       <%= f.label :goal %><br />
       <%= f.text_field :goal %>
       <br>
-
-      <%= f.label :image, "Attach an image" %>
-      <%= f.file_field :image %>
+      
+      <%= f.label :image_url, "Attach an image" %>
+      <%= f.file_field :image_url %>
 
       <%= f.hidden_field :user_id, :value => current_user.id %>
 
