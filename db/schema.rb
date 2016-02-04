@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 20160204180242) do
     t.integer  "user_id"
   end
 
+  create_table "order_staches", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "stache_id"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "order_staches", ["order_id"], name: "index_order_staches_on_order_id", using: :btree
+  add_index "order_staches", ["stache_id"], name: "index_order_staches_on_stache_id", using: :btree
+
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at",                     null: false
@@ -80,6 +91,17 @@ ActiveRecord::Schema.define(version: 20160204180242) do
     t.integer "category_id"
   end
 
+  create_table "staches", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.string   "image_url"
+    t.boolean  "retired",                             default: false
+    t.decimal  "price",       precision: 8, scale: 2
+    t.string   "stache_url"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
@@ -93,5 +115,7 @@ ActiveRecord::Schema.define(version: 20160204180242) do
   add_foreign_key "causes", "users"
   add_foreign_key "donations", "causes"
   add_foreign_key "donations", "users"
+  add_foreign_key "order_staches", "orders"
+  add_foreign_key "order_staches", "staches"
   add_foreign_key "orders", "users"
 end
