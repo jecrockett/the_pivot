@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to dashboard_path
+      redirect_to @user
     else
       render :new
     end
@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    render :dashboard
   end
 
   def edit
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to dashboard_path
+      redirect_to @user
     else
       render :edit
     end

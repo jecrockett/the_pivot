@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :cart_staches, only: [:create, :destroy]
   resource :cart, only: [:show]
   resources :categories, only: [:index, :show]
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :users, only: [:new, :create, :edit, :update, :show]
 
   namespace :users, path: ':user', as: :user do
     resources :causes, only: [:index, :show]
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  get "/dashboard", to: "users#show"
+  # get "/dashboard", to: "users#show"
   post "update_quantity", to: "cart_staches#update_quantity"
   get "/about", to: "static#about"
 

@@ -23,6 +23,15 @@ module ActionDispatch
       reset_session!
     end
 
+    def log_in(user)
+      visit login_path
+      fill_in "Username", with: user.username
+      fill_in "Password", with: 'password'
+      within '.main' do
+        click_on "Login"
+      end
+    end
+
     def create_eight_orders_for_user
       user = create(:user)
       staches = create_list(:stache, 3)
