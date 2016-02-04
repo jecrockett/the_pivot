@@ -1,6 +1,7 @@
 class Users::CausesController < ApplicationController
   def show
     @cause = Cause.find(params[:id])
+    @amount_raised = Donation.where(cause_id: @cause.id).sum(:amount) || 0
     @donation = Donation.new
   end
 
