@@ -18,10 +18,12 @@
           <span>1</span>
         </div>
         <div class="col s6">
-          <p>Amount Raised:</p>
-          <span>$100</span>
+          <div id="amount-raised">
+            <p>Amount Raised:</p>
+            <span><%= @amount_raised %></span>
+          </div>
           <p>Target Goal:</p>
-          <span>$500</span>
+          <span><%= @cause.goal %></span>
         </div>
       </div>
       <div class="input-field">
