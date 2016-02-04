@@ -1,22 +1,10 @@
 class Seed
   def initialize
-    # generate_stores
     generate_users
     generate_categories
     generate_causes
     generate_donations
-    # generate_items
-    # generate_orders
   end
-
-  # def generate_stores
-  #   10.times do |i|
-  #     store = Store.create!(
-  #       name: "#{Faker::Company.name} #{Faker::Company.suffix}"
-  #       )
-  #     puts "Store #{i}: #{store.name} created!"
-  #   end
-  # end
 
   def generate_categories
     categories = %w(Tech Travel Food Art Fashion Music
@@ -64,26 +52,6 @@ class Seed
       end
     end
   end
-
-  # def generate_orders
-  #   100.times do |i|
-  #     user  = User.find(Random.new.rand(1..50))
-  #     store = Store.find(Random.new.rand(1..10))
-  #     order = Order.create!(user_id: user.id, store_id: store.id)
-  #     add_items(order)
-  #     puts "Order #{i}: Order for #{user.name} created!"
-  #   end
-  # end
-
-  private
-
-  # def add_items(order)
-  #   10.times do |i|
-  #     item = Item.find(Random.new.rand(1..500))
-  #     order.items << item
-  #     puts "#{i}: Added item #{item.name} to order #{order.id}."
-  #   end
-  # end
 end
 
 Seed.new
