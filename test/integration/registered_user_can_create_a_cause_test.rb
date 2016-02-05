@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class RegisteredUserCanCreateACauseTest < ActionDispatch::IntegrationTest
-    test "the truth" do
+    test "cause is created with valid inputs" do
       user = users(:carl)
 
       log_in(user)
