@@ -1,6 +1,11 @@
 <div id="cause-card" class="card row">
   <div class="card-content white darken-1">
-    <h3 class="col s12 center-align"> <%= @cause.title %></h3>
+    <div id="cause-card-header">
+      <h3 class="col s12 center-align"> <%= @cause.title %></h3>
+      <% if current_user_id == @cause.user_id %>
+        <span> <%= link_to "Edit Your Dream", edit_user_cause_path(@cause.user, @cause) %></span>
+      <% end %>
+    </div>
     <div class="cause-info-container col s8">
       <div class="cause-img-container valign-wrapper center-align">
         <%= image_tag("http://2.bp.blogspot.com/_h4tLF5wFv0Q/RaGGhc9VF4I/AAAAAAAAAOw/tNXjEPlMx8I/s320/Picture+1.png", class: "valign") %>

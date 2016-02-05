@@ -1,15 +1,21 @@
-# require "test_helper"
-#
-# class UserCannotViewOtherUsersOrdersTest < ActionDispatch::IntegrationTest
-#   test "user cannot view other user's orders" do
-#     user_1, user_2 = create_list(:user, 2)
-#     order_1 = create(:order)
-#     user_1.orders << order_1
-#
-#     ApplicationController.any_instance.stubs(:current_user).returns(user_2)
-#
-#     assert_raises(ActiveRecord::RecordNotFound) do
-#       visit order_path(order_1)
-#     end
-#   end
-# end
+require "test_helper"
+
+class UserCannotEditOtherUsersCauseTest < ActionDispatch::IntegrationTest
+  test "user cannot edit other user's cause" do
+    user_1 = users(:carl)
+    user_2 = users(:bernie)
+    cause = user_1.causes.last
+
+    log_in(user_2)
+    visit user_cause_path(user_1, cause)
+
+    within '#cause-card-header' do
+      refute page.has_link?("Edit Your Cause")
+    end
+
+    visit edit_user_cause_path(user_1, cause)
+
+    assert_equal root_path, current_path
+
+  end
+end
