@@ -1,7 +1,9 @@
-<div class="container">
+<div class="container user-header">
   <h3><%= @user.username %>'s Dream Board
-    <span><%= link_to "Edit Account Info", edit_user_path(@user), class: "btn light-green darken-4" %></span>
-    <span><%= link_to "Build a Dream", new_user_cause_path(@user), class: "btn light-green darken-4" %></span>
+    <% if current_user_id == @user.id %>
+      <span><%= link_to "Edit Account Info", edit_user_path(@user), class: "btn light-green darken-4" %></span>
+      <span><%= link_to "Build a Dream", new_user_cause_path(@user), class: "btn light-green darken-4" %></span>
+    <% end %>
   </h3>
 
 </div>

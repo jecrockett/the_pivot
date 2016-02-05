@@ -12,10 +12,9 @@ class UserCannotEditOtherUsersCauseTest < ActionDispatch::IntegrationTest
     within '#cause-card-header' do
       refute page.has_link?("Edit Your Cause")
     end
-
+    
     visit edit_user_cause_path(user_1, cause)
 
     assert_equal root_path, current_path
-
   end
 end
