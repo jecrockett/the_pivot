@@ -4,7 +4,10 @@ class Seed
     generate_categories
     generate_causes
     generate_donations
-    generate_sample_causes
+    moon
+    potato
+    squirrel
+    ostrich
   end
 
   def generate_categories
@@ -54,8 +57,44 @@ class Seed
     end
   end
 
-  def generate_sample_causes
+  def moon
+    Cause.create!(
+    title: "Colonize The Moon",
+    description: "Act now before Elon Musk owns the whole damn thing",
+    image_url: Faker::Avatar.image,
+    goal: 100000000000,
+    user_id: User.pluck(:id).sample,
+    category_id: Category.pluck(:id).sample)
+  end
 
+  def potato
+    Cause.create!(
+    title: "Potato Salad",
+    description: "Leonard's greatest ambition is to make Potato Salad - help him achieve this noble goal",
+    image_url: Faker::Avatar.image,
+    goal: 12.75,
+    user_id: User.pluck(:id).sample,
+    category_id: Category.pluck(:id).sample)
+  end
+
+  def squirrel
+    Cause.create!(
+    title: "Squirrel Census",
+    description: "Those furry little bastards have flown under the radar for far too long",
+    image_url: Faker::Avatar.image,
+    goal: 25000,
+    user_id: User.pluck(:id).sample,
+    category_id: Category.pluck(:id).sample)
+  end
+
+  def ostrich
+    Cause.create!(
+    title: "Ostrich Pillow",
+    description: "Get your nap on anytime, anywhere",
+    image_url: Faker::Avatar.image,
+    goal: 3800,
+    user_id: User.pluck(:id).sample,
+    category_id: Category.pluck(:id).sample)
   end
 end
 
