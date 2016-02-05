@@ -3,3 +3,9 @@ carl:
   username: Carl
   password_digest: <%= User.digest('password') %>
   email: carl69beef@geocities.com
+
+bernie:
+  id: 2
+  username: Bernie
+  password_digest: <%= User.digest('password') %>
+  email: bernie@feelthebern.com

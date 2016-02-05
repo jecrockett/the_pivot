@@ -10,7 +10,7 @@ class RegisteredUserCanLogInTest < ActionDispatch::IntegrationTest
       click_on "Login"
     end
 
-    assert_equal user_path(User.last), current_path
+    assert_equal user_path(user), current_path
     assert page.has_content?("Start dreaming, Carl :-)")
   end
 end

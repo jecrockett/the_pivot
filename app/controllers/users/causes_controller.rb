@@ -1,4 +1,6 @@
 class Users::CausesController < ApplicationController
+  before_action :valid_cause_owner?, only: [:edit, :update]
+
   def show
     @cause = Cause.find(params[:id])
     @amount_raised = Donation.where(cause_id: @cause.id).sum(:amount) || 0
@@ -25,11 +27,23 @@ class Users::CausesController < ApplicationController
     end
   end
 
+  def edit
+    @cause = Cause.find(params[:id])
+  end
+
   def update
+    @cause = Cause.find(params[:id])
+    @cause.update_attributes(cause_params)
+    redirect_to user_cause_path(@cause.user, @cause)
   end
 
   private
     def cause_params
       params.require(:cause).permit(:title, :description, :goal, :category_id)
+    end
+
+    def valid_cause_owner?
+      @cause = Cause.find(params[:id])
+      redirect_to root_path unless current_user_id == @cause.user_id
     end
 end
