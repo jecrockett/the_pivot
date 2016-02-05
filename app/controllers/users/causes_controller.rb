@@ -43,7 +43,7 @@ class Users::CausesController < ApplicationController
     end
 
     def valid_cause_owner?
-      @cause = Cause.find(params[:id])
-      redirect_to root_path unless current_user_id == @cause.user_id
+      cause = Cause.find(params[:id])
+      redirect_to root_path unless current_user_id == cause.user_id
     end
 end
