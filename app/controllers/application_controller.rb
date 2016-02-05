@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :random_stache, :current_admin?, :current_user_id
   protect_from_forgery with: :exception
-  before_action :set_cart
+  # before_action :set_cart
   before_action :store_location
 
   def store_location
@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
     session[:attempted_donation] || default
   end
 
-  def set_cart
-    @cart = Cart.new(session[:cart])
-  end
+  # def set_cart
+  #   @cart = Cart.new(session[:cart])
+  # end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

@@ -4,6 +4,7 @@ class Seed
     generate_categories
     generate_causes
     generate_donations
+    generate_sample_causes
   end
 
   def generate_categories
@@ -51,6 +52,10 @@ class Seed
         puts "#{cause.title} received #{cause.donations.last.amount} dollars!"
       end
     end
+  end
+
+  def generate_sample_causes
+
   end
 end
 
