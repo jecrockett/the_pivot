@@ -20,10 +20,13 @@
       <%= f.label :image_url, "Attach an image" %>
       <%= f.file_field :image_url %>
 
+      <%= f.label :other_admins, "Add another dream admin (enter a user's email)" %>
+      <%= f.text_field :other_admins %>
+
       <%= f.hidden_field :user_id, :value => current_user.id %>
 
       <%= f.submit "Submit", class: "waves-effect waves-light btn" %>
 
   <% end %>
 </div>
-<%= link_to "Add Dream Admin", new_cause_admin_path(cause_id: @cause.id) %>
+<!-- <%= link_to "Add Dream Admin", new_cause_admin_path(cause_id: @cause.id) %> -->
