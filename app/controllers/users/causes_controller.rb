@@ -33,6 +33,7 @@ class Users::CausesController < ApplicationController
   end
 
   def update
+    byebug
     @cause = Cause.find(params[:id])
     update_cause_attribues
     redirect_to user_cause_path(@cause.user, @cause)

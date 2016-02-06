@@ -3,7 +3,7 @@ class Admin::DashboardController < Admin::BaseController
     @active_causes = Cause.where(status: 1)
     @pending_causes = Cause.where(status: 0)
     @users = User.all
-    @donations = Donation.all
+    @donations = Donation.last(30)
     render "admin/dashboard"
   end
 end

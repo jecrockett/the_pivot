@@ -367,7 +367,7 @@ h3 span {
   font-size: 30px;
 }
 
-/*----ABOUT----*/
+/*----ADMIN DASHBOARD----*/
 .admin-data {
   margin-top: 40px;
 }
@@ -381,10 +381,18 @@ h3 span {
 }
 
 .donations-box {
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: auto;
 }
 .pending-box {
+  max-height: 300px;
+  overflow-y: auto;
+}
+.users-box {
+  max-height: 300px;
+  overflow-y: auto;
+}
+.causes-box {
   max-height: 300px;
   overflow-y: auto;
 }

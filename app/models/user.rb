@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :donations
   has_many :causes
+  has_many :causes, through: :donations
   validates :username, presence: true
   validates :email, presence: true, uniqueness: true
   enum role: %w(default admin)
