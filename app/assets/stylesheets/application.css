@@ -10,30 +10,30 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Unica One';
+  font-family: 'Montserrat';
   color: darkolivegreen;
 }
 
 h6 {
-  font-family: 'Unica One';
+  font-family: 'Montserrat';
   color: darkolivegreen;
   font-size: 18px;
 }
 
 p {
-  font-family: 'Unica One';
+  font-family: 'Montserrat';
 }
 li {
-  font-family: 'Unica One';
+  font-family: 'Montserrat';
 }
 
 a {
   color: forestgreen;
-  font-family: 'Unica One';
+  font-family: 'Montserrat';
 }
 
 .btn {
-  font-family: 'Unica One';
+  font-family: 'Montserrat';
 }
 
 .preview img {
@@ -47,7 +47,7 @@ a {
   position: fixed;
   z-index: -1;
   right: 9px;
-  font-family: 'Unica One';
+  font-family: 'Montserrat';
 }
 
 .flash {
@@ -90,7 +90,7 @@ a {
   position: absolute;
   right: 94.6%;
   color: brown;
-  font-family: 'Unica One';
+  font-family: 'Montserrat';
 }
 .collection .collection-item.avatar .secondary-content {
   color: black;
@@ -113,14 +113,14 @@ a {
   font-size: 12px;
   padding-top: 7px;
   padding-right: 15px;
-  font-family: 'Unica One';
+  font-family: 'Montserrat';
 }
 .fixed {
   text-decoration: underline;
   font-size: 12px;
   padding-top: 7px;
   padding-left: 15px;
-  font-family: 'Unica One';
+  font-family: 'Montserrat';
 }
 .flash_removed {
   color: green;
@@ -171,7 +171,7 @@ a {
   bottom: 30px;
 }
 .category-label {
-  font-family: 'Unica One', cursive;
+  font-family: 'Montserrat', cursive;
   font-size: 2em;
   color: #33691e;
 }
@@ -188,7 +188,7 @@ a {
 /*----INDEX----*/
 .card-title {
   display: inherit;
-  font-family: 'Unica One';
+  font-family: 'Montserrat';
 }
 
 .stache-desc {
@@ -300,15 +300,17 @@ img.user_image {
 
 /* USER PROFILE */
 
-h3 span {
-  font-size: 12px;
-  float: right;
+.cause-managed {
+  height: 140px;
+  max-height: 140px;
+  font-size: 10px;
 }
 
-.cause {
-  height: 160px;
-  max-height: 160px;
+.cause-donated {
+  height: 35px;
   font-size: 10px;
+  margin: 0 auto;
+  margin-bottom: 5px;
 }
 
 .causes-container {
@@ -338,6 +340,12 @@ h3 span {
 
 .top-space {
   margin-top: 20px;
+}
+
+#causes-supported {
+  overflow-y: auto;
+  height: 562px;
+  padding-top: 5px;
 }
 
 /* CAUSE SHOW */

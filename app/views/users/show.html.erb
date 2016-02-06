@@ -1,11 +1,9 @@
-<div class="container user-header">
-  <h3><%= @user.username %>'s Dream Board
-    <% if current_user_id == @user.id %>
-      <span><%= link_to "Edit Account Info", edit_user_path(@user), class: "btn light-green darken-4" %></span>
-      <span><%= link_to "Build a Dream", new_user_cause_path(@user), class: "btn light-green darken-4" %></span>
-    <% end %>
-  </h3>
-
+<div class="container user-header center">
+  <h3><%= @user.username %>'s Dream Board</h3>
+  <% if current_user_id == @user.id %>
+    <span><%= link_to "Edit Account Info", edit_user_path(@user), class: "btn light-green darken-4" %></span>
+    <span><%= link_to "Build a Dream", new_user_cause_path(@user), class: "btn light-green darken-4" %></span>
+  <% end %>
 </div>
 
 <div class="row">
@@ -18,10 +16,10 @@
     </div>
   </div> <!-- end of managed causes -->
   <div class="col s6">
-    <div id="causes-supported" class="causes-container">
+    <div class="causes-container">
     <h4 class="center">Causes You Support</h4>
-      <ul>
-        <%= render partial: "users/causes_supported", collection: @user.causes %>
+      <ul id="causes-supported">
+        <%= render partial: "users/causes_supported", collection: @user.supported_causes %>
       </ul>
   </div>
 </div> <!-- end of row -->

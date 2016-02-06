@@ -6,25 +6,27 @@
       <li> <%= error %> </li>
     <% end %>
     </ul>
-    <%= f.collection_select :category_id, Category.all, :id, :title, { prompt: "Choose a category" }, class: "browser-default" %>
-
-      <%= f.label :title %><br />
+      <%= f.label :title %>
       <%= f.text_field :title %>
 
-      <%= f.label :description %><br />
-      <%= f.text_area :description, :cols => "10", :rows => "10", :style => "margin: 0px; width: 508px; height: 249px;" %>
-
-      <%= f.label :goal %><br />
-      <%= f.text_field :goal %>
+      <%= f.label :description %>
+      <%= f.text_area :description, :style => "margin: 0px; width: 100%; height: 150px;" %>
       <br>
-
-      <%= f.label :image_url, "Attach an image" %>
-      <%= f.file_field :image_url %>
+      <%= f.label :category %>
+      <%= f.collection_select :category_id, Category.all, :id, :title, { prompt: "Choose a category" }, class: "browser-default" %>
+      <br>
+      <%= f.label :goal %>
+      <%= f.text_field :goal %>
 
       <%= f.label :other_admins, "Add another dream admin (enter a user's email)" %>
       <%= f.text_field :other_admins %>
 
       <%= f.hidden_field :user_id, :value => current_user.id %>
+
+      <%= f.label :image_url, "Attach an image" %>
+      <%= f.file_field :image_url %>
+      <br>
+      <br>
 
       <%= f.submit "Submit", class: "waves-effect waves-light btn" %>
 

@@ -1,7 +1,7 @@
-<%= link_to "#" do %>
-  <li class="card cause row">
+<%= link_to user_cause_path(causes_managed.user, causes_managed) do %>
+  <li class="card cause-managed row">
     <div class="cause-img-container valign-wrapper col s3">
-      <%= causes_managed.image_url %>
+      <%= image_tag(causes_managed.image_url) %>
     </div>
     <div class="col s9 row">
       <h6 class="col s12">
