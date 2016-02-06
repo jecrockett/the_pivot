@@ -5,7 +5,7 @@ class CauseAdminsController < ApplicationController
   end
 
   def create
-    byebug
+
   end
 
 end
