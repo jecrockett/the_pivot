@@ -54,6 +54,28 @@ a {
   padding-left: 10px;
 }
 
+.ostrich h3,
+.ostrich h5,
+.ostrich h5 a {
+  color: white;
+}
+
+.squirrel-description {
+  width: 500px;
+}
+
+.squirrel h3,
+.squirrel h5,
+.squirrel h5 a {
+  color: black;
+}
+
+.potato h3,
+.potato h5,
+.potato h5 a {
+  color: black;
+}
+
 /*----NAVIGATION----*/
 
 .left-nav {
