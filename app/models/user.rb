@@ -11,4 +11,10 @@ class User < ActiveRecord::Base
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+
+  def supported_causes
+    self.donations.map do |donation|
+      Cause.find(donation.cause_id)
+    end
+  end
 end

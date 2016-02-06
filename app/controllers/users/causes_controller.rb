@@ -62,6 +62,10 @@ class Users::CausesController < ApplicationController
     def update_cause_attribues
       @cause.update_attributes(cause_params)
       admins = @cause.other_admins.concat([params[:cause][:other_admins]])
-      @cause.update_column(:other_admins, admins)
+      @cause.update_column(:other_admins, admins) if email_found?
+    end
+
+    def email_found?
+      User.find_by(email: params[:cause][:other_admins])
     end
 end
