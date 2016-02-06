@@ -4,6 +4,8 @@ class Seed
     generate_categories
     generate_causes
     generate_donations
+    generate_pending_causes
+    generate_specific_users
   end
 
   def generate_categories
@@ -35,14 +37,47 @@ class Seed
       image_url: Faker::Avatar.image,
       goal: rand(100..100000),
       user_id: User.pluck(:id).sample,
-      category_id: Category.pluck(:id).sample
+      category_id: Category.pluck(:id).sample,
+      status: 1
       )
-    puts "Cause #{i}: #{cause.title} - #{cause.user} created!"
+      puts "Cause #{i}: #{cause.title} - #{cause.user} created!"
     end
   end
 
+  def generate_pending_causes
+    10.times do |i|
+      cause = Cause.create!(
+      title: Faker::Commerce.product_name,
+      description: Faker::Lorem.paragraph(2),
+      image_url: Faker::Avatar.image,
+      goal: rand(100..100000),
+      user_id: User.pluck(:id).sample,
+      category_id: Category.pluck(:id).sample,
+      )
+      puts "Pending cause #{i}: #{cause.title} - #{cause.user} created!"
+    end
+  end
+
+  def generate_specific_users
+    User.create!(
+    username:     'steve',
+    email:    'steve@dreambuilder.com',
+    password_digest: User.digest('password'),
+    )
+    User.create!(
+    username:     'jamie',
+    email:    'jamie@dreambuilder.com',
+    password_digest: User.digest('password'),
+    )
+    User.create!(
+    username:     'david',
+    email:    'david@dreambuilder.com',
+    password_digest: User.digest('password'),
+    )
+  end
+
   def generate_donations
-    Cause.all.each do |cause|
+    Cause.where(status: 1).each do |cause|
       5.times do |i|
         donation = Donation.create(amount: rand(1..200),
                                    user_id: User.pluck(:id).sample,
