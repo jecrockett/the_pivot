@@ -1,8 +1,8 @@
 class Seed
   def initialize
+    generate_causes
     generate_users
     generate_categories
-    generate_causes
     generate_donations
   end
 
@@ -34,7 +34,7 @@ class Seed
       description: Faker::Lorem.paragraph(2),
       image_url: Faker::Avatar.image,
       goal: rand(100..100000),
-      user_id: User.pluck(:id).sample,
+      # user_id: User.pluck(:id).sample,
       category_id: Category.pluck(:id).sample
       )
     puts "Cause #{i}: #{cause.title} - #{cause.user} created!"

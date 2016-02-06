@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CauseOwnerCanAddAnotherCauseAdminTest < ActionDispatch::IntegrationTest
   test "cause owner can add another user as a cause admin" do
-    skip
+
     user1 = users(:carl)
     user2 = users(:bernie)
     log_in(user1)

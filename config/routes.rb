@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/about", to: "static#about"
+  get "/new_admin", to: "static#new_admin"
 
   root "static#home"
 end
