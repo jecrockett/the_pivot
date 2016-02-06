@@ -1,6 +1,0 @@
-<h3>Add New Dream Administrator for <%= @cause.title %></h3>
-<%= form_tag(cause_admins_path(cause_id: @cause.id), method: "post") do %>
-  <%= label_tag(:q, "New Admin Email:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Add Admin") %>
-<% end %>
