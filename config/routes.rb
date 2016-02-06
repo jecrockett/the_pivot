@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :create, :edit, :update, :destroy]
   end
 
-  resources :cause_admins, only: [:new, :create]
   resources :donations, only: [:create]
   resources :categories, only: [:index, :show]
   resources :users, only: [:new, :create, :edit, :update, :show]
