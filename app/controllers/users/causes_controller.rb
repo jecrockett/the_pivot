@@ -33,21 +33,24 @@ class Users::CausesController < ApplicationController
   end
 
   def update
-    byebug
     @cause = Cause.find(params[:id])
     update_cause_attribues
-    redirect_to user_cause_path(@cause.user, @cause)
+    if URI(request.referrer).path == "/admin/dashboard"
+      redirect_to admin_dashboard_path
+    else
+      redirect_to user_cause_path(@cause.user, @cause)
+    end
   end
 
   private
 
     def cause_params
-      params.require(:cause).permit(:title, :description, :goal, :category_id, :user_id, :other_admins)
+      params.require(:cause).permit(:title, :description, :goal, :category_id, :user_id, :other_admins, :status)
     end
 
     def valid_cause_owner?
       cause = Cause.find(params[:id])
-      redirect_to root_path unless current_user_id == cause.user_id
+      redirect_to root_path unless (current_user_id == cause.user_id) || (current_user.role == 'admin')
     end
 
     def update_cause_attribues

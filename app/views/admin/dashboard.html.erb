@@ -35,10 +35,16 @@
         <h5 class="center">Pending Causes</h5>
         <div class="collection">
           <% @pending_causes.each do |cause| %>
-            <%= link_to cause.title, user_cause_path(cause.user, cause), class: "collection-item" %>
-            <p class="btn">Reject</p>
-            <a href=""></a>
-            <%= link_to "Accept", edit_user_cause_path(cause.user, cause), status: 1, class: "btn" %>
+            <%= link_to cause.title, user_cause_path(cause.user, cause),
+                class: "collection-item" %>
+            <%= form_for([cause.user, cause]) do |f|  %>
+              <%= f.hidden_field :status, value: 'active' %>
+              <%= f.submit "Accept", class: "btn"  %>
+            <% end %>
+            <%= form_for([cause.user, cause]) do |f|  %>
+              <%= f.hidden_field :status, value: 'inactive' %>
+              <%= f.submit "Reject", class: "btn red"  %>
+            <% end %>
           <% end %>
         </div>
       </div>

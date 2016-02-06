@@ -38,7 +38,7 @@ class Seed
       goal: rand(100..100000),
       user_id: User.pluck(:id).sample,
       category_id: Category.pluck(:id).sample,
-      status: 1
+      current_status: 'approved'
       )
       puts "Cause #{i}: #{cause.title} - #{cause.user} created!"
     end
@@ -63,21 +63,24 @@ class Seed
     username:     'steve',
     email:    'steve@dreambuilder.com',
     password_digest: User.digest('password'),
+    role: 1
     )
     User.create!(
     username:     'jamie',
     email:    'jamie@dreambuilder.com',
     password_digest: User.digest('password'),
+    role: 1
     )
     User.create!(
     username:     'david',
     email:    'david@dreambuilder.com',
     password_digest: User.digest('password'),
+    role: 1
     )
   end
 
   def generate_donations
-    Cause.where(status: 1).each do |cause|
+    Cause.where(status: 'approved').each do |cause|
       5.times do |i|
         donation = Donation.create(amount: rand(1..200),
                                    user_id: User.pluck(:id).sample,

@@ -1,5 +1,5 @@
 class AddStatusToCauses < ActiveRecord::Migration
   def change
-    add_column :causes, :status, :integer, default: 0
+    add_column :causes, :current_status, :string, default: 'pending'
   end
 end
