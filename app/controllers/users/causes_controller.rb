@@ -41,7 +41,7 @@ class Users::CausesController < ApplicationController
   private
 
     def cause_params
-      params.require(:cause).permit(:title, :description, :goal, :category_id)
+      params.require(:cause).permit(:title, :description, :goal, :category_id, :user_id, :other_admins)
     end
 
     def valid_cause_owner?
