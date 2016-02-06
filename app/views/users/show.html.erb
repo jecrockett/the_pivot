@@ -1,45 +1,25 @@
-<div class="container">
-  <h3><%= @user.username %>'s Dream Board
+<div class="container user-header center">
+  <h3><%= @user.username %>'s Dream Board</h3>
+  <% if current_user_id == @user.id %>
     <span><%= link_to "Edit Account Info", edit_user_path(@user), class: "btn light-green darken-4" %></span>
     <span><%= link_to "Build a Dream", new_user_cause_path(@user), class: "btn light-green darken-4" %></span>
-  </h3>
-
+  <% end %>
 </div>
 
 <div class="row">
   <div class="col s6">
-    <div class="causes-container">
+    <div id="causes-managed" class="causes-container">
     <h4 class="center">Causes You Manage</h4>
       <ul>
-        <%= render '/users/cause' %>
-        <%= link_to "#" do %>
-          <li class="card row cause">
-            <div class="cause-img-container valign-wrapper col s3">
-              <%= image_tag("http://images.cdbaby.name/c/r/crystaldawne2.jpg", class: "valign") %>
-            </div>
-            <div class="col s9 row">
-              <h6 class="col s12">Travel to the Moon</h6>
-              <p class="col s8 left-align">
-                Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me.
-              </p>
-              <div class="cause-funds col s4">
-                <p>Raised: <span>$100</span></p>
-                <p>Goal: <span>$500</span></p>
-              </div>
-            </div>
-          </li>
-        <% end %>
-        <%= render '/users/cause' %>
+        <%= render partial: "users/causes_managed", collection: @user.causes %>
       </ul>
     </div>
   </div> <!-- end of managed causes -->
   <div class="col s6">
     <div class="causes-container">
     <h4 class="center">Causes You Support</h4>
-      <ul>
-        <%= render '/users/cause' %>
-        <%= render '/users/cause' %>
-        <%= render '/users/cause' %>
+      <ul id="causes-supported">
+        <%= render partial: "users/causes_supported", collection: @user.supported_causes %>
       </ul>
   </div>
 </div> <!-- end of row -->

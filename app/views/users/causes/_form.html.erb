@@ -1,3 +1,4 @@
+
 <div class="container">
   <%= form_for([current_user, @cause], html: {multipart: true}) do |f| %>
     <ul>
@@ -6,24 +7,27 @@
     <% end %>
     </ul>
 
-      <%= f.label :title %><br />
+      <%= f.label :title %>
       <%= f.text_field :title %>
 
-      <%= f.label :description %><br />
-      <%= f.text_area :description, :cols => "10", :rows => "10", :style => "margin: 0px; width: 508px; height: 249px;" %>
+      <%= f.label :description %>
+      <%= f.text_area :description, :style => "margin: 0px; width: 100%; height: 150px;" %>
       <br>
-      <br>
-      <%= f.label :category %><br />
+      <%= f.label :category %>
       <%= f.collection_select :category_id, Category.all, :id, :title, { prompt: "Choose a category" }, class: "browser-default" %>
       <br>
-      <%= f.label :goal %><br />
+      <%= f.label :goal %>
       <%= f.text_field :goal %>
-      <br>
+
+      <%= f.label :other_admins, "Add another dream admin (enter a user's email)" %>
+      <%= f.text_field :other_admins %>
+
+      <%= f.hidden_field :user_id, :value => current_user.id %>
 
       <%= f.label :image_url, "Attach an image" %>
       <%= f.file_field :image_url %>
-
-      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <br>
+      <br>
 
       <%= f.submit "Submit", class: "waves-effect waves-light btn" %>
 

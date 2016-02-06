@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204180242) do
+ActiveRecord::Schema.define(version: 20160206230023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +27,25 @@ ActiveRecord::Schema.define(version: 20160204180242) do
     t.text     "description"
     t.string   "image_url"
     t.integer  "goal"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "user_id"
     t.integer  "category_id"
+    t.string   "other_admins",   default: [],                     array: true
+    t.string   "current_status", default: "pending"
   end
 
   add_index "causes", ["category_id"], name: "index_causes_on_category_id", using: :btree
   add_index "causes", ["user_id"], name: "index_causes_on_user_id", using: :btree
+
+  create_table "causes_users", force: :cascade do |t|
+    t.integer "cause_id"
+    t.integer "user_id"
+    t.integer "role"
+  end
+
+  add_index "causes_users", ["cause_id"], name: "index_causes_users_on_cause_id", using: :btree
+  add_index "causes_users", ["user_id"], name: "index_causes_users_on_user_id", using: :btree
 
   create_table "donations", force: :cascade do |t|
     t.integer  "user_id"
@@ -47,38 +58,14 @@ ActiveRecord::Schema.define(version: 20160204180242) do
   add_index "donations", ["cause_id"], name: "index_donations_on_cause_id", using: :btree
   add_index "donations", ["user_id"], name: "index_donations_on_user_id", using: :btree
 
-  create_table "headshot_photos", force: :cascade do |t|
-    t.string   "description"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.integer  "capturable_id"
-    t.string   "capturable_type"
-    t.datetime "image_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
+  create_table "ownership", force: :cascade do |t|
+    t.integer "cause_id"
+    t.integer "user_id"
+    t.integer "role",     default: 0
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "status",     default: "ordered"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zipcode"
-  end
-
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
-
-  create_table "stache_categories", force: :cascade do |t|
-    t.integer "stache_id"
-    t.integer "category_id"
-  end
+  add_index "ownership", ["cause_id"], name: "index_ownership_on_cause_id", using: :btree
+  add_index "ownership", ["user_id"], name: "index_ownership_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -91,7 +78,10 @@ ActiveRecord::Schema.define(version: 20160204180242) do
 
   add_foreign_key "causes", "categories"
   add_foreign_key "causes", "users"
+  add_foreign_key "causes_users", "causes"
+  add_foreign_key "causes_users", "users"
   add_foreign_key "donations", "causes"
   add_foreign_key "donations", "users"
-  add_foreign_key "orders", "users"
+  add_foreign_key "ownership", "causes"
+  add_foreign_key "ownership", "users"
 end

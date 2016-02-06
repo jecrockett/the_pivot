@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :current_admin?, :current_user_id
+  helper_method :current_user, :current_admin?, :current_user_id, :get_other_admins
   protect_from_forgery with: :exception
   before_action :store_location
 
@@ -25,5 +25,14 @@ class ApplicationController < ActionController::Base
 
   def current_admin?
     current_user && current_user.admin?
+  end
+
+  def get_other_admins(cause)
+    admins = []
+    unless cause.other_admins.empty?
+      cause.other_admins.each { |admin| admins << User.find_by(email: admin).username }
+    end
+    admins.empty? ? result = "None" : result = admins.join(", ")
+    result
   end
 end

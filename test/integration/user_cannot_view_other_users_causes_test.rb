@@ -16,6 +16,5 @@ class UserCannotEditOtherUsersCauseTest < ActionDispatch::IntegrationTest
     visit edit_user_cause_path(user_1, cause)
 
     assert_equal root_path, current_path
-
   end
 end

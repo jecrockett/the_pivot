@@ -3,6 +3,7 @@
     <div id="cause-card-header">
       <h3 class="col s12 center-align"> <%= @cause.title %></h3>
       <% if current_user_id == @cause.user_id %>
+        <span>Other Admins: <%= get_other_admins(@cause)%></span> <br>
         <span> <%= link_to "Edit Your Dream", edit_user_cause_path(@cause.user, @cause) %></span>
       <% end %>
     </div>

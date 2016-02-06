@@ -1,0 +1,29 @@
+<!-- <%= link_to user_cause_path(causes_supported.user, causes_supported) do %>
+  <li class="card cause row">
+    <div class="cause-img-container valign-wrapper col s3">
+      <%= image_tag(causes_supported.image_url) %>
+    </div>
+    <div class="col s9 row">
+      <h6 class="col s12">
+        <%= causes_supported.title %>
+      </h6>
+      <p class="col s8 left-align">
+        <%= causes_supported.description %>
+      </p>
+      <div class="cause-funds col s4">
+        <span><%= causes_supported.amount_raised %> </span>
+      </div>
+    </div>
+  </li>
+<% end %> -->
+
+<%= link_to user_cause_path(causes_supported.user, causes_supported) do %>
+  <li class="card cause-donated row">
+      <h6 class="col s6 offset-s2 truncate">
+        <%= causes_supported.title %>
+      </h6>
+      <div class="cause-funds col s2">
+        <span><%= causes_supported.amount_raised %> </span>
+      </div>
+  </li>
+<% end %>

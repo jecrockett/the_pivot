@@ -8,6 +8,8 @@ class Seed
     potato
     squirrel
     ostrich
+    generate_pending_causes
+    generate_specific_users
   end
 
   def generate_categories
@@ -39,14 +41,50 @@ class Seed
       image_url: Faker::Avatar.image,
       goal: rand(100..100000),
       user_id: User.pluck(:id).sample,
-      category_id: Category.pluck(:id).sample
+      category_id: Category.pluck(:id).sample,
+      current_status: 'approved'
       )
-    puts "Cause #{i}: #{cause.title} - #{cause.user} created!"
+      puts "Cause #{i}: #{cause.title} - #{cause.user} created!"
     end
   end
 
+  def generate_pending_causes
+    10.times do |i|
+      cause = Cause.create!(
+      title: Faker::Commerce.product_name,
+      description: Faker::Lorem.paragraph(2),
+      image_url: Faker::Avatar.image,
+      goal: rand(100..100000),
+      user_id: User.pluck(:id).sample,
+      category_id: Category.pluck(:id).sample,
+      )
+      puts "Pending cause #{i}: #{cause.title} - #{cause.user} created!"
+    end
+  end
+
+  def generate_specific_users
+    User.create!(
+    username:     'steve',
+    email:    'steve@dreambuilder.com',
+    password_digest: User.digest('password'),
+    role: 1
+    )
+    User.create!(
+    username:     'jamie',
+    email:    'jamie@dreambuilder.com',
+    password_digest: User.digest('password'),
+    role: 1
+    )
+    User.create!(
+    username:     'david',
+    email:    'david@dreambuilder.com',
+    password_digest: User.digest('password'),
+    role: 1
+    )
+  end
+
   def generate_donations
-    Cause.all.each do |cause|
+    Cause.where(current_status: 'approved').each do |cause|
       5.times do |i|
         donation = Donation.create(amount: rand(1..200),
                                    user_id: User.pluck(:id).sample,
@@ -62,7 +100,7 @@ class Seed
     title: "Colonize The Moon",
     description: "Act now before Elon Musk owns the whole damn thing",
     image_url: Faker::Avatar.image,
-    goal: 100000000000,
+    goal: 10000,
     user_id: User.pluck(:id).sample,
     category_id: Category.pluck(:id).sample)
   end

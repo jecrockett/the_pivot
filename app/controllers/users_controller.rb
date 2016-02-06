@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  # helper :headshot
-  before_action :current_user_guard, only: [:edit]
+  before_action :valid_user?, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -43,5 +42,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  end
+
+  def valid_user?
+    user = User.find(params[:id])
+    redirect_to root_path unless current_user_id == user.id
   end
 end
