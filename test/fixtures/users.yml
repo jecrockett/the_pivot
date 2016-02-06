@@ -9,3 +9,10 @@ bernie:
   username: Bernie
   password_digest: <%= User.digest('password') %>
   email: bernie@feelthebern.com
+
+admin:
+  id: 3
+  username: Admin
+  password_digest: <%= User.digest('password') %>
+  email: bernie@feelthebern.com
+  role: 1

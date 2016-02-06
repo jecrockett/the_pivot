@@ -5,6 +5,7 @@ cereal_machine:
   goal: 500
   user_id: 1
   category_id: 1
+  current_status: approved
 
 colonize_moon:
   title: Colonize the moon!
@@ -13,3 +14,4 @@ colonize_moon:
   goal: 5000000
   user_id: 1
   category_id: 2
+  current_status: approved
