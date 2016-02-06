@@ -12,6 +12,8 @@ class CauseOwnerCanAddAnotherCauseAdminTest < ActionDispatch::IntegrationTest
     click_on "Edit Your Dream"
     fill_in "Add another dream admin (enter a user's email)", with: User.first.email
     click_on "Submit"
+
+    save_and_open_page
     assert page.has_content?("#{User.first.username}")
   end
 end
