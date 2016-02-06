@@ -16,7 +16,7 @@
       <%= f.label :goal %><br />
       <%= f.text_field :goal %>
       <br>
-      
+
       <%= f.label :image_url, "Attach an image" %>
       <%= f.file_field :image_url %>
 
@@ -26,3 +26,4 @@
 
   <% end %>
 </div>
+<%= link_to "Add Dream Admin", new_cause_admin_path(cause_id: @cause.id) %>

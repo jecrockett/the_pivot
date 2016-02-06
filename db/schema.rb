@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204205109) do
+ActiveRecord::Schema.define(version: 20160206030334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,10 @@ ActiveRecord::Schema.define(version: 20160204205109) do
     t.text     "description"
     t.string   "image_url"
     t.integer  "goal"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "category_id"
-    t.integer  "amount_raised", default: 0
   end
 
   add_index "causes", ["category_id"], name: "index_causes_on_category_id", using: :btree
@@ -48,60 +47,14 @@ ActiveRecord::Schema.define(version: 20160204205109) do
   add_index "donations", ["cause_id"], name: "index_donations_on_cause_id", using: :btree
   add_index "donations", ["user_id"], name: "index_donations_on_user_id", using: :btree
 
-  create_table "headshot_photos", force: :cascade do |t|
-    t.string   "description"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.integer  "capturable_id"
-    t.string   "capturable_type"
-    t.datetime "image_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
+  create_table "ownership_joins", force: :cascade do |t|
+    t.integer "cause_id"
+    t.integer "user_id"
+    t.integer "role",     default: 0
   end
 
-  create_table "order_staches", force: :cascade do |t|
-    t.integer  "order_id"
-    t.integer  "stache_id"
-    t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "order_staches", ["order_id"], name: "index_order_staches_on_order_id", using: :btree
-  add_index "order_staches", ["stache_id"], name: "index_order_staches_on_stache_id", using: :btree
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "status",     default: "ordered"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zipcode"
-  end
-
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
-
-  create_table "stache_categories", force: :cascade do |t|
-    t.integer "stache_id"
-    t.integer "category_id"
-  end
-
-  create_table "staches", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.string   "image_url"
-    t.boolean  "retired",                             default: false
-    t.decimal  "price",       precision: 8, scale: 2
-    t.string   "stache_url"
-  end
+  add_index "ownership_joins", ["cause_id"], name: "index_ownership_joins_on_cause_id", using: :btree
+  add_index "ownership_joins", ["user_id"], name: "index_ownership_joins_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -116,7 +69,6 @@ ActiveRecord::Schema.define(version: 20160204205109) do
   add_foreign_key "causes", "users"
   add_foreign_key "donations", "causes"
   add_foreign_key "donations", "users"
-  add_foreign_key "order_staches", "orders"
-  add_foreign_key "order_staches", "staches"
-  add_foreign_key "orders", "users"
+  add_foreign_key "ownership_joins", "causes"
+  add_foreign_key "ownership_joins", "users"
 end
