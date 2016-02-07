@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :current_admin?, :current_user_id, :get_other_admins
+  helper_method :current_user, :current_admin?, :current_user_id, :get_other_admins, :active_causes, :cause_owner?
   protect_from_forgery with: :exception
 
   def redirect_path(default)
@@ -30,4 +30,13 @@ class ApplicationController < ActionController::Base
     admins.empty? ? result = "None" : result = admins.join(", ")
     result
   end
+
+  def active_causes
+    Cause.where(category_id: params[:id], current_status: "active")
+  end
+
+  def cause_owner?
+    params[:user].to_i == current_user_id
+  end
+
 end

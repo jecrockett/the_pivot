@@ -1,7 +1,9 @@
 class Users::CausesController < ApplicationController
   before_action :valid_cause_owner?, only: [:edit, :update]
+  # before_action :active_cause_check, only: [:show]
 
   def show
+    redirect_to root_path unless show_cause?
     @cause = Cause.find(params[:id])
     @amount_raised = Donation.where(cause_id: @cause.id).sum(:amount) || 0
     @donation = Donation.new
@@ -45,12 +47,12 @@ class Users::CausesController < ApplicationController
   private
 
     def cause_params
-      params.require(:cause).permit(:title, 
-                                    :description, 
-                                    :goal, 
-                                    :category_id, 
-                                    :user_id, 
-                                    :other_admins, 
+      params.require(:cause).permit(:title,
+                                    :description,
+                                    :goal,
+                                    :category_id,
+                                    :user_id,
+                                    :other_admins,
                                     :status)
     end
 
@@ -67,5 +69,13 @@ class Users::CausesController < ApplicationController
 
     def email_found?
       User.find_by(email: params[:cause][:other_admins])
+    end
+
+    def active_cause_check
+      render file: "/publeic/404" unless show_cause?
+    end
+
+    def show_cause?
+      Cause.find(params[:id]).current_status == 'active' || cause_owner?
     end
 end
