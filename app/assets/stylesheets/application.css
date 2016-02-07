@@ -88,6 +88,18 @@ a {
   color: black;
 }
 
+/* HOME */
+
+.homepage-outer-img {
+  height: 200px;
+  width: 250px;
+  border-radius: 15%;
+}
+
+.homepage-middle-img {
+  height: 200px;
+}
+
 /*----NAVIGATION----*/
 
 .left-nav {
