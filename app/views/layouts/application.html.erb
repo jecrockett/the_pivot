@@ -12,8 +12,9 @@
 </head>
 <body>
   <nav>
+
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo">DreamBuilder</a>
+      <a href="/" class="brand-logo"><%= image_tag("logo2white.png", :alt => "unicorn", class: "logo-img") %></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li> <%= link_to "Causes", categories_path %> </li>
         <% if current_user %>
@@ -28,6 +29,7 @@
       </ul>
     </div>
   </nav>
+  <%= image_tag("unicorn.png", :alt => "unicorn", class: "unicorn") %>
 <% flash.each do |type, msg| %>
   <%= content_tag :div, sanitize(msg), class: "flash_#{type} flash" %>
 <% end %>
