@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20160206230023) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.string   "other_admins",   default: [],                     array: true
-    t.integer  "status",         default: 0
     t.string   "current_status", default: "pending"
   end
 

@@ -1,63 +1,77 @@
 <div class="slider">
   <ul class="slides">
     <li>
-      <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
-      <div class="caption center-align">
-        <h3>Colonize The Moon</h3>
-        <h5 class="light grey-text text-lighten-3">Donate</h5>
+      <%= image_tag(@moon.image_url) %>
+      <div class="caption moon right-align">
+        <h3><%= @moon.title %></h3>
+        <h5><%= @moon.description %></h5>
+        <h5 class="light grey-text text-lighten-3">
+          <%= link_to "Donate", user_cause_path(@moon.user, @moon), class: "btn" %>
+        </h5>
       </div>
     </li>
     <li>
-      <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
-      <div class="caption left-align">
-        <h3>Robot Unicorns</h3>
-        <h5 class="light grey-text text-lighten-3">Donate</h5>
+      <%= image_tag(@potato.image_url) %>
+      <div class="caption potato left-align">
+        <h3><%= @potato.title %></h3>
+        <h5><%= @potato.description %></h5>
+        <h5 class="light grey-text text-lighten-3">
+          <%= link_to "Donate", user_cause_path(@potato.user, @potato), class: "btn" %>
+        </h5>
       </div>
     </li>
     <li>
-      <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
-      <div class="caption right-align">
-        <h3>Wireless Wires</h3>
-        <h5 class="light grey-text text-lighten-3">Donate</h5>
+      <%= image_tag(@squirrel.image_url) %>
+      <div class="caption squirrel left-align">
+        <h3><%= @squirrel.title %></h3>
+        <h5 class="squirrel-description"><%= @squirrel.description %></h5>
+        <h5 class="light grey-text text-lighten-3">
+          <%= link_to "Donate", user_cause_path(@squirrel.user, @squirrel), class: "btn" %>
+        </h5>
       </div>
     </li>
     <li>
-      <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
-      <div class="caption center-align">
-        <h3>Auto Bowl of Cereal Machine</h3>
-        <h5 class="light grey-text text-lighten-3">Donate</h5>
+      <%= image_tag(@ostrich.image_url) %>
+      <div class="caption ostrich right-align">
+        <h3><%= @ostrich.title %></h3>
+        <h5><%= @ostrich.description %></h5>
+        <h5 class="light grey-text text-lighten-3">
+          <%= link_to "Donate", user_cause_path(@ostrich.user, @ostrich), class: "btn" %>
+        </h5>
       </div>
     </li>
   </ul>
 </div>
 
 <div class="container">
-  <h1>Dream Builder</h1>
+  <h1>DreamBuilder</h1>
   <p>
-    Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+    Here at DreamBuilder, we encourage all our dreamers to shoot for the moon because if they miss, they'll land among the stars!
   </p>
 </div>
+
+<br>
 
 <div class="row">
 
   <div class="col s4">
     <div class="center promo">
-      <i class="material-icons">flash_on</i>
+      <i class="material-icons">build</i>
       <p class="promo-caption">Build Your Dream</p>
-      <p class="light center">We did the heavy liftig balbalkjdfasidfj</p>
+      <p class="light center">Remember when you were 4 and you wanted to ride your tricycle to the ocean? You can do that now</p>
     </div>
   </div>
   <div class="col s4">
     <div class="center promo">
-      <i class="material-icons">flash_on</i>
-      <p class="promo-caption">Build Your Dream</p>
-      <p class="light center">We did the heavy liftig balbalkjdfasidfj</p>
+      <i class="material-icons">mood</i>
+      <p class="promo-caption">Support A Dream</p>
+      <p class="light center">Help fellow dreamers reach never before seen heights</p>
     </div>
   </div>
   <div class="col s4">
     <div class="center promo">
-      <i class="material-icons">flash_on</i>
-      <p class="promo-caption">Build Your Dream</p>
+      <i class="material-icons">group</i>
+      <p class="promo-caption">Join the Dreamers Community</p>
       <p class="light center">We did the heavy liftig balbalkjdfasidfj</p>
     </div>
   </div>

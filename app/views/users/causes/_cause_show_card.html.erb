@@ -9,7 +9,7 @@
     </div>
     <div class="cause-info-container col s8">
       <div class="cause-img-container valign-wrapper center-align">
-        <%= image_tag("http://2.bp.blogspot.com/_h4tLF5wFv0Q/RaGGhc9VF4I/AAAAAAAAAOw/tNXjEPlMx8I/s320/Picture+1.png", class: "valign") %>
+        <%= image_tag(@cause.image_url, class: "valign") %>
       </div>
       <p>
         <%= @cause.description %>

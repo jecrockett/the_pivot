@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :current_admin?, :current_user_id, :get_other_admins, :active_causes, :cause_owner?
   protect_from_forgery with: :exception
+  before_action :store_location
+
+  def store_location
+    session[:forwarding_url] = request.path if request.get?
+  end
 
   def redirect_path(default)
     session[:attempted_donation] || default

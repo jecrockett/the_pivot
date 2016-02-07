@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class UserCannotEditOthersAccountInfoTest < ActionDispatch::IntegrationTest
+
+  def setup
+    featured_cause_user!
+    create_featured_causes!
+  end
+
   test "user cannot edit another user's account" do
     user_1 = users(:carl)
     user_2 = users(:bernie)
