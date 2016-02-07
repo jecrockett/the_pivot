@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update, :show]
 
   namespace :users, path: ':user', as: :user do
-    resources :causes, only: [:index, :show, :new, :create, :edit, :update]
+    resources :causes
   end
 
   get "/login", to: "sessions#new"

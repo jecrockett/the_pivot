@@ -60,6 +60,18 @@ module ActionDispatch
       )
     end
 
+    def deleted_cause_placeholder
+      cause = Cause.create!(
+      title: "Dead Dream",
+      description: "Dream, dream, little angel",
+      image_url: Faker::Avatar.image,
+      goal: 0,
+      user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
+      category_id: 1,
+      current_status: 'active'
+      )
+    end
+
     def create_featured_causes!
       Cause.create!(
       title: "Colonize The Moon",

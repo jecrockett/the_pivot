@@ -1,5 +1,5 @@
 class Users::CausesController < ApplicationController
-  before_action :valid_cause_owner?, only: [:edit, :update]
+  before_action :valid_cause_owner?, only: [:edit, :update, :destroy]
 
   def show
     redirect_to root_path unless show_cause?
@@ -43,6 +43,15 @@ class Users::CausesController < ApplicationController
     end
   end
 
+  def destroy
+    cause = Cause.find(params[:id])
+    donation = Donation.find_by(cause_id: cause.id)
+    holder = Cause.find_by(title: "Dead Dream")
+    donation.update_column(:cause_id, holder.id)
+    cause.delete
+    redirect_to user_path(User.find(params[:user]))
+  end
+
   private
 
     def cause_params
@@ -52,7 +61,7 @@ class Users::CausesController < ApplicationController
                                     :category_id,
                                     :user_id,
                                     :other_admins,
-                                    :status)
+                                    :current_status)
     end
 
     def valid_cause_owner?

@@ -38,11 +38,11 @@
             <%= link_to cause.title, user_cause_path(cause.user, cause),
                 class: "collection-item" %>
             <%= form_for([cause.user, cause]) do |f|  %>
-              <%= f.hidden_field :status, value: 'active' %>
+              <%= f.hidden_field :current_status, value: 'active' %>
               <%= f.submit "Accept", class: "btn"  %>
             <% end %>
             <%= form_for([cause.user, cause]) do |f|  %>
-              <%= f.hidden_field :status, value: 'inactive' %>
+              <%= f.hidden_field :current_status, value: 'inactive' %>
               <%= f.submit "Reject", class: "btn red"  %>
             <% end %>
           <% end %>

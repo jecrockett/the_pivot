@@ -7,6 +7,7 @@ class Seed
     generate_pending_causes
     generate_specific_users
     featured_cause_user
+    deleted_cause_placeholder
     moon
     potato
     squirrel
@@ -89,6 +90,18 @@ class Seed
     username:     'mike_dao',
     email:    'mike_dao@dreambuilder.com',
     password_digest: User.digest('password'),
+    )
+  end
+
+  def deleted_cause_placeholder
+    cause = Cause.create!(
+    title: "Dead Dream",
+    description: "Dream, dream, little angel",
+    image_url: Faker::Avatar.image,
+    goal: 0,
+    user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
+    category_id: 1,
+    current_status: 'active'
     )
   end
 
