@@ -5,7 +5,7 @@ cereal_machine:
   goal: 500
   user_id: 1
   category_id: 1
-  current_status: approved
+  current_status: active
 
 colonize_moon:
   title: Colonize the moon!
@@ -14,4 +14,13 @@ colonize_moon:
   goal: 5000000
   user_id: 1
   category_id: 2
-  current_status: approved
+  current_status: active
+
+bad_idea:
+  title: Bad Idea
+  description: A dream that should not be active.
+  image_url: http://imagesci.com/img/2013/11/planet-earth-from-the-moon-1886-hd-wallpapers.jpg
+  goal: 50000
+  user_id: 1
+  category_id: 1
+  current_status: pending

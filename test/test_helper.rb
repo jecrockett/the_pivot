@@ -32,6 +32,10 @@ module ActionDispatch
       end
     end
 
+    def log_out
+      click_on "Log Out"
+    end
+
     def create_eight_orders_for_user
       user = create(:user)
       staches = create_list(:stache, 3)
