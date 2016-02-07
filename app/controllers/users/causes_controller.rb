@@ -1,6 +1,5 @@
 class Users::CausesController < ApplicationController
   before_action :valid_cause_owner?, only: [:edit, :update]
-  # before_action :active_cause_check, only: [:show]
 
   def show
     redirect_to root_path unless show_cause?
@@ -69,10 +68,6 @@ class Users::CausesController < ApplicationController
 
     def email_found?
       User.find_by(email: params[:cause][:other_admins])
-    end
-
-    def active_cause_check
-      render file: "/publeic/404" unless show_cause?
     end
 
     def show_cause?
