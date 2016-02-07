@@ -2,7 +2,7 @@
   <br>
   <h4 class="center"> <%= @category.title %> </h4><br>
   <div class="row">
-    <%= render partial: "categories/cause", collection: @category.causes %>
+    <%= render partial: "categories/cause", collection: active_causes %>
   </div>
 
   <div class="center">

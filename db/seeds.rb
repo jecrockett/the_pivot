@@ -43,7 +43,7 @@ class Seed
       goal: rand(100..100000),
       user_id: User.pluck(:id).sample,
       category_id: Category.pluck(:id).sample,
-      current_status: 'approved'
+      current_status: 'active'
       )
       puts "Cause #{i}: #{cause.title} - #{cause.user} created!"
     end
@@ -93,7 +93,7 @@ class Seed
   end
 
   def generate_donations
-    Cause.where(current_status: 'approved').each do |cause|
+    Cause.where(status: 'active').each do |cause|
       5.times do |i|
         donation = Donation.create(amount: rand(1..200),
                                    user_id: User.pluck(:id).sample,
