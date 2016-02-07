@@ -93,7 +93,7 @@ class Seed
   end
 
   def generate_donations
-    Cause.where(status: 'active').each do |cause|
+    Cause.where(current_status: 'active').each do |cause|
       5.times do |i|
         donation = Donation.create(amount: rand(1..200),
                                    user_id: User.pluck(:id).sample,
@@ -117,7 +117,7 @@ class Seed
   def potato
     Cause.create!(
     title: "Potato Salad",
-    description: "Leonard's greatest ambition is to make Potato Salad - help him achieve this noble goal",
+    description: "Leonard's greatest ambition is to make Potato Salad",
     image_url: "https://www.omegafi.com/apps/home/wp-content/uploads/2015/08/potato-salad-the-good-one.jpg",
     goal: 13,
     user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
