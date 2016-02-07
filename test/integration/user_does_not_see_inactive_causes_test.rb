@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UserDoesNotSeeInactiveCausesTest < ActionDispatch::IntegrationTest
-  test "visit and user do not see another user's inactive causes" do
+  test "visitor and user do not see another user's inactive causes" do
     user1 = users(:carl)
     user2 = users(:bernie)
     cause = causes(:bad_idea)
