@@ -19,16 +19,16 @@
       <div class="cause-stats-container center row">
         <div class="col s6">
           <p>Supporters:</p>
-          <span><%= @total_supporters %></span>
+          <span><%= @cause.total_supporters %></span>
           <div id="donations-received">
             <p>Donations:</p>
-            <span> <%= @donation_count %> </span>
+            <span> <%= @cause.donation_count %> </span>
           </div>
         </div>
         <div class="col s6">
           <div id="amount-raised">
             <p>Amount Raised:</p>
-            <span><%= @amount_raised %></span>
+            <span><%= @cause.amount_raised %></span>
           </div>
           <p>Target Goal:</p>
           <span><%= @cause.goal %></span>
@@ -45,9 +45,6 @@
           <%= f.hidden_field :cause_id, :value => @cause.id %>
           <%= f.submit "Fund This Dream", class: "wave-effect waves-light btn light-green darken-4" %>
         <% end  %>
-        <!-- <input id="donation_amount" type="text">
-        <label for="donation_amount">Donation Amount ($)</label>
-        <%= link_to "FUND THIS DREAM", "#", class: "btn light-green darken-4" %> -->
       </div> <!-- end of donation form -->
     </div> <!-- end of second cause card column -->
   </div> <!-- end of card content -->

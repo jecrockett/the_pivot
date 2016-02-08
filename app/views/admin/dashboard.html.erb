@@ -4,7 +4,7 @@
   <%= link_to "View Users", root_path, class: "btn admin-btn" %>
   <div class="admin-data row">
     <div class="col s12 m8 l8">
-      <div class="donations-box">
+      <div class="box">
         <h5 class="center">Recent Donations</h5>
         <table>
           <thead>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="col s12 m4 l4">
-      <div class="pending-box">
+      <div class="box">
         <h5 class="center">Pending Causes</h5>
         <div class="collection">
           <% @pending_causes.each do |cause| %>

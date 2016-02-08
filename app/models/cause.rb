@@ -6,4 +6,12 @@ class Cause < ActiveRecord::Base
   def amount_raised
     Donation.where(cause_id: self.id).sum(:amount) || 0
   end
+
+  def donation_count
+    Donation.where(cause_id: self.id).count
+  end
+
+  def total_supporters
+    Donation.where(cause_id: self.id).pluck(:user_id).uniq.count
+  end
 end
