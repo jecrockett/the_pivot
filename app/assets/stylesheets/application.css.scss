@@ -1,0 +1,221 @@
+body {
+  background-color: white;
+  height: 100%;
+  font-family: "Montserrat";
+  cursor: url('cursor2.png'), default;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: darkolivegreen;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+a {
+  color: forestgreen;
+}
+
+.flash {
+  padding-left: 10px;
+}
+
+/* HOMEPAGE SLIDER */
+
+.moon {
+  h3, h5 {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+  h5 a {
+    text-shadow: none;
+  }
+  * {
+    color: white;
+  }
+}
+
+.squirrel * {
+  color: black;
+}
+
+.squirrel-description {
+  width: 500px;
+}
+
+.ostrich * {
+  color: white;
+}
+
+.potato * {
+  color: black;
+}
+
+/* HOME */
+
+.homepage-outer-img {
+  height: 200px;
+  width: 250px;
+  border-radius: 15%;
+}
+
+.homepage-middle-img {
+  height: 200px;
+}
+
+/* NAVIGATION */
+.logo-img {
+  max-width: 310px;
+  margin-left: 15px;
+}
+.unicorn {
+  max-width: 40px;
+  margin-left: 15px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 340px;
+  z-index: 99;
+}
+.collection .collection-item.avatar .secondary-content {
+  color: black;
+  top: 5px;
+}
+
+/* INDEX */
+
+.card-image span {
+  color: black;
+}
+
+/* CATEGORIES INDEX */
+.colored {
+  color: #f35626;
+  font-size: 1.5em;
+  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 8s infinite linear;
+}
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(360deg);
+  }
+}
+
+/* FOOTER */
+
+.footer-bar {
+  background-color: sienna;
+  opacity: .9;
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  clear:both;
+  margin-top: 120px;
+  bottom: 0;
+  z-index: 0;
+}
+.footer-content {
+  float: right;
+  display: inline-block;
+}
+.footer-link {
+  position: relative;
+  top: 10px;
+  left: 12px;
+}
+
+/* USER PROFILE */
+
+.cause-managed {
+  height: 140px;
+  max-height: 140px;
+  font-size: 10px;
+}
+
+.cause-donated {
+  height: 35px;
+  font-size: 10px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  width: 95%;
+}
+
+.causes-container {
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.cause-img-container {
+  height: 140px;
+  width: 95%;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.cause-funds {
+  font-size: 12px;
+  text-align: right;
+  span {
+    font-size: 12px;
+  }
+}
+
+.top-space {
+  margin-top: 20px;
+}
+
+#causes-supported {
+  overflow-y: auto;
+  height: 562px;
+  padding-top: 5px;
+}
+
+/* CAUSE SHOW */
+
+#cause-card {
+  min-height: 600px;
+}
+
+.cause-info-container {
+  margin: 20px 0;
+  min-height: 400px;
+  img {
+    margin: 10px auto;
+  }
+}
+
+.cause-stats-container {
+  margin: 50px 0 80px 0;
+  p {
+    padding-top: 40px;
+  }
+  span {
+    font-size: 30px;
+  }
+}
+
+/*----ADMIN DASHBOARD----*/
+.admin-data {
+  margin-top: 40px;
+}
+.admin-btn {
+  display: inline-block;
+  margin: auto;
+  width: 150px;
+}
+.collection a.collection-item {
+  background: lightgrey;
+}
+
+.box {
+  max-height: 300px;
+  overflow-y: auto;
+}

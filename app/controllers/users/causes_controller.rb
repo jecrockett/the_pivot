@@ -4,10 +4,7 @@ class Users::CausesController < ApplicationController
   def show
     redirect_to root_path unless show_cause?
     @cause = Cause.find(params[:id])
-    @amount_raised = Donation.where(cause_id: @cause.id).sum(:amount) || 0
     @donation = Donation.new
-    @donation_count = Donation.where(cause_id: @cause.id).count
-    @total_supporters = Donation.where(cause_id: @cause.id).pluck(:user_id).uniq.count
   end
 
   def index
