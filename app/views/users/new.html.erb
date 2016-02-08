@@ -1,22 +1,33 @@
 <div class="container">
   <h4>Create a New Account</h4>
+  <br>
   <%= form_for(@user) do |f| %>
 
     <%= render "shared/error_messages", object: f.object %>
 
-    <%= f.label :username %>
-    <%= f.text_field :username  %>
+    <div class="input-field">
+      <%= f.label :username %>
+      <%= f.text_field :username  %>
+    </div>
 
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <div class="input-field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <div class="input-field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <div class="input-field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
 
-    <%= f.submit "Create Account", class: "wave-effect waves-light btn light-green darken-4" %>
+    <div>
+      <%= f.submit "Create Account", class: "wave-effect waves-light btn light-green darken-4" %>
+    </div>
   <% end  %>
   <div>
     <p>
