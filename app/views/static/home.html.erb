@@ -1,22 +1,12 @@
 <div class="slider">
   <ul class="slides">
     <li>
-      <%= image_tag(@moon.image_url) %>
+      <%= image_tag('moon-pic.jpg', id:"moon-pic") %>
       <div class="caption moon right-align">
         <h3><%= @moon.title %></h3>
         <h5><%= @moon.description %></h5>
         <h5 class="light grey-text text-lighten-3">
           <%= link_to "Donate", user_cause_path(@moon.user, @moon), class: "btn" %>
-        </h5>
-      </div>
-    </li>
-    <li>
-      <%= image_tag(@potato.image_url) %>
-      <div class="caption potato left-align">
-        <h3><%= @potato.title %></h3>
-        <h5><%= @potato.description %></h5>
-        <h5 class="light grey-text text-lighten-3">
-          <%= link_to "Donate", user_cause_path(@potato.user, @potato), class: "btn" %>
         </h5>
       </div>
     </li>
@@ -27,6 +17,16 @@
         <h5 class="squirrel-description"><%= @squirrel.description %></h5>
         <h5 class="light grey-text text-lighten-3">
           <%= link_to "Donate", user_cause_path(@squirrel.user, @squirrel), class: "btn" %>
+        </h5>
+      </div>
+    </li>
+    <li>
+      <%= image_tag('potato-salad.jpg', id:"tater-salad-pic") %>
+      <div class="caption potato right-align">
+        <h3><%= @potato.title %></h3>
+        <h5><%= @potato.description %></h5>
+        <h5 class="light grey-text text-lighten-3">
+          <%= link_to "Donate", user_cause_path(@potato.user, @potato), class: "btn" %>
         </h5>
       </div>
     </li>
