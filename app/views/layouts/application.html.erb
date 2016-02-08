@@ -15,7 +15,7 @@
     <div class="nav-wrapper">
       <a href="/" class="brand-logo"><%= image_tag("logo2white.png", :alt => "unicorn", class: "logo-img") %></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li> <%= link_to "Causes", categories_path %> </li>
+        <li> <%= link_to "Categories", categories_path %> </li>
         <% if current_user %>
           <li> <%= link_to "Build Your Dream", new_user_cause_path(current_user) %> </li>
           <li> <%= link_to "User Dashboard", user_path(current_user) %></li>

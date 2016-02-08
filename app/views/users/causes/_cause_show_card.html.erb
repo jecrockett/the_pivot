@@ -5,6 +5,7 @@
       <% if current_user_id == @cause.user_id %>
         <span>Other Admins: <%= get_other_admins(@cause)%></span> <br>
         <span> <%= link_to "Edit Your Dream", edit_user_cause_path(@cause.user, @cause) %></span>
+        <%= link_to "Delete Dream", user_cause_path(@cause.user, @cause), method: :delete %>
       <% end %>
     </div>
     <div class="cause-info-container col s8">
