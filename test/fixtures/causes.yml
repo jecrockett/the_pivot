@@ -1,4 +1,5 @@
 cereal_machine:
+  id: 1
   title: Automatic Dispensing Cereal Machine
   description: Revolutionize your breakfast! Revolutionize your breakfast! Revolutionize your breakfast! Revolutionize your breakfast! Revolutionize your breakfast! Revolutionize your breakfast! Revolutionize your breakfast! Revolutionize your breakfast! Revolutionize your breakfast! Revolutionize your breakfast! Revolutionize your breakfast!
   image_url: http://2.bp.blogspot.com/_h4tLF5wFv0Q/RaGGhc9VF4I/AAAAAAAAAOw/tNXjEPlMx8I/s320/Picture+1.png
@@ -8,6 +9,7 @@ cereal_machine:
   current_status: active
 
 colonize_moon:
+  id: 2
   title: Colonize the moon!
   description: A giant leap for mankind.
   image_url: http://imagesci.com/img/2013/11/planet-earth-from-the-moon-1886-hd-wallpapers.jpg

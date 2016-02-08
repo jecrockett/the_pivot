@@ -44,6 +44,7 @@
           <%= f.text_field :amount %>
           <%= f.hidden_field :user_id, :value => current_user_id %>
           <%= f.hidden_field :cause_id, :value => @cause.id %>
+          <%= f.hidden_field :cause_name, :value => @cause.title %>
           <%= f.submit "Fund This Dream", class: "wave-effect waves-light btn light-green darken-4" %>
         <% end  %>
       </div> <!-- end of donation form -->
