@@ -14,4 +14,12 @@ class Cause < ActiveRecord::Base
   def total_supporters
     Donation.where(cause_id: self.id).pluck(:user_id).uniq.count
   end
+
+  def self.active_causes
+    where(current_status: "active")
+  end
+
+  def self.pending_causes
+    where(current_status: "pending")
+  end
 end
