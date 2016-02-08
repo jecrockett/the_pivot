@@ -1,12 +1,16 @@
 <div class="container main">
   <h4>Login To Account</h4>
-
+  <br>
   <%= form_for(:session, url: login_path) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+    <div class="input-field">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <div class="input-field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
 
     <%= f.submit "Login", class: "waves-effect waves-light btn light-green darken-4" %>
   <% end %>
