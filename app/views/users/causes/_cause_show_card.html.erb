@@ -2,6 +2,7 @@
   <div class="card-content white darken-1">
     <div id="cause-card-header">
       <h2 class="col s12 center-align colored"> <%= @cause.title %></h2>
+      <span>Dreamt By: <%= link_to "#{@cause.user.username}", user_path(@cause.user) %> </span>
       <% if current_user_id == @cause.user_id %>
         <span id="admins">Other Admins: <%= get_other_admins(@cause)%></span> <br>
         <span> <%= link_to "Edit Your Dream", edit_user_cause_path(@cause.user, @cause), class: "btn" %></span>
