@@ -134,8 +134,8 @@ class Seed
     image_url: "http://oi67.tinypic.com/eq2edd.jpg",
     goal: 1000000,
     user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
-    category_id: Category.pluck(:id).sample)
-    current_status: "active"
+    category_id: Category.pluck(:id).sample,
+    current_status: "active")
   end
 
   def potato
@@ -145,8 +145,8 @@ class Seed
     image_url: "https://www.omegafi.com/apps/home/wp-content/uploads/2015/08/potato-salad-the-good-one.jpg",
     goal: 13,
     user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
-    category_id: Category.pluck(:id).sample)
-    current_status: "active"
+    category_id: Category.pluck(:id).sample,
+    current_status: "active")
   end
 
   def squirrel
@@ -156,8 +156,8 @@ class Seed
     image_url: "https://wallpaperscraft.com/image/skrat_squirrel_ice_age_ice_falling_63305_3840x1200.jpg",
     goal: 25000,
     user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
-    category_id: Category.pluck(:id).sample)
-    current_status: "active"
+    category_id: Category.pluck(:id).sample,
+    current_status: "active")
   end
 
   def ostrich
@@ -167,8 +167,8 @@ class Seed
     image_url: "http://www.crowdfunding-shop.com/uploads/1/1/8/9/11893290/s127856143605570547_p8_i1_w640.jpeg",
     goal: 3800,
     user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
-    category_id: Category.pluck(:id).sample)
-    current_status: "active"
+    category_id: Category.pluck(:id).sample,
+    current_status: "active")
   end
 end
 
