@@ -1,9 +1,6 @@
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <div class="container">
   <%= render partial: '/users/causes/cause_show_card' %>
-  <div class="chart">
-    Funds Raised:
-    <%= pie_chart({"Goal" => @cause.goal, "Raised" => @cause.amount_raised}) %>
-  </div>
+
   <%= render partial: '/users/causes/cause_supporters' %>
 </div>
