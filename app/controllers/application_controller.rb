@@ -1,14 +1,19 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :current_admin?, :current_user_id, :get_other_admins, :active_causes, :cause_owner?
+  helper_method :current_user, :current_admin?, :current_user_id, :get_other_admins, :active_causes, :cause_owner?, :clear_attempted_donation, :login_redirect
   protect_from_forgery with: :exception
-  before_action :store_location
 
-  def store_location
-    session[:forwarding_url] = request.path if request.get?
+  def clear_attempted_donation
+    session[:attempted_donation] = nil
   end
 
-  def redirect_path(default)
-    session[:attempted_donation] || default
+  def login_redirect(user)
+    if session[:attempted_donation]
+      redirect_to session[:attempted_donation]
+    elsif current_admin?
+      redirect_to admin_dashboard_path
+    else
+      redirect_to user_path(user)
+    end
   end
 
   def current_user
@@ -28,13 +33,12 @@ class ApplicationController < ActionController::Base
   end
 
   def get_other_admins(cause)
-    admins = []
-    unless cause.other_admins.empty?
-      cause.other_admins.each { |admin| admins << User.find_by(email: admin).username }
-    end
-    admins.empty? ? result = "None" : result = admins.join(", ")
-    result
-  end
+     unless cause.other_admins.empty?
+       admins = cause.other_admins.map { |admin| User.find_by(email: admin).username }
+     end
+     admins.nil? ? result = "None" : result = admins.join(", ")
+     result
+   end
 
   def active_causes
     Cause.where(category_id: params[:id], current_status: "active")
