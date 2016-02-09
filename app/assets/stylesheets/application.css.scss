@@ -16,6 +16,7 @@ h6 {
 a {
   color: midnightblue;
 }
+
 a:hover {
   color: orange;
 }
@@ -23,6 +24,11 @@ a:hover {
 .btn {
   background-color: darkslategray;
   color: white;
+}
+
+.btn:hover {
+  color:orange;
+  background-color: darkslategray;
 }
 
 .flash {
@@ -79,6 +85,10 @@ a:hover {
   color: white;
 }
 
+#slider .indicator-item.active {
+  background-color: orange;
+}
+
 /* HOME */
 
 .homepage-outer-img {
@@ -116,6 +126,9 @@ a:hover {
 
 .nav-wrapper {
   background-color: darkslategray;
+  li a {
+    color: #ffa726;
+  }
 }
 
 /* INDEX */
