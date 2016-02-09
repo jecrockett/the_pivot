@@ -5,7 +5,7 @@ class RegisteredUserCanLogInTest < ActionDispatch::IntegrationTest
     user = users(:carl)
     visit login_path
     within '.main' do
-      fill_in "Username", with: "Carl"
+      fill_in "Email", with: "carl69beef@geocities.com"
       fill_in "Password", with: "password"
       click_on "Login"
     end

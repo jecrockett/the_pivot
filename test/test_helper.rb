@@ -25,7 +25,7 @@ module ActionDispatch
 
     def log_in(user)
       visit login_path
-      fill_in "Username", with: user.username
+      fill_in "Email", with: user.email
       fill_in "Password", with: 'password'
       within '.main' do
         click_on "Login"
