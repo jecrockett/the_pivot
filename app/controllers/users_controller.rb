@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :user_exists?, only: [:show]
   before_action :valid_user?, only: [:edit, :update]
 
   def new
@@ -34,6 +35,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find(params[:id])
+    holder = User.find_by(email: "gone@heaven.com")
+    backfill_causes(user)
+    user.delete
+    session.clear
+    redirect_to root_path
+  end
+
   private
 
   def redirect_back_or(default)
@@ -47,5 +57,9 @@ class UsersController < ApplicationController
   def valid_user?
     user = User.find(params[:id])
     redirect_to root_path unless current_user_id == user.id
+  end
+
+  def user_exists?
+    redirect_to root_path unless (User.all.pluck(:id).include?(params[:id].to_i))
   end
 end

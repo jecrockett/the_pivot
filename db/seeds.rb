@@ -7,6 +7,7 @@ class Seed
     generate_pending_causes
     generate_specific_users
     featured_cause_user
+    deleted_user_placeholder
     deleted_cause_placeholder
     moon
     potato
@@ -99,9 +100,17 @@ class Seed
     description: "Dream, dream, little angel",
     image_url: Faker::Avatar.image,
     goal: 0,
-    user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
+    user_id: User.find_by(email: "gone@heaven.com").id,
     category_id: 1,
     current_status: 'active'
+    )
+  end
+
+  def deleted_user_placeholder
+    user = User.create!(
+    username: "Dead Person",
+    email: "gone@heaven.com",
+    password_digest: User.digest('password')
     )
   end
 

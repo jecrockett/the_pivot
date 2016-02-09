@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :donations, only: [:create]
   resources :categories, only: [:index, :show]
-  resources :users, only: [:new, :create, :edit, :update, :show]
+  resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
 
   namespace :users, path: ':user', as: :user do
     resources :causes

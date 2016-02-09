@@ -44,4 +44,17 @@ class ApplicationController < ActionController::Base
     params[:user].to_i == current_user_id
   end
 
+  def backfill_donations(cause)
+    donations = Donation.where(cause_id: cause.id)
+    holder = Cause.find_by(title: "Dead Dream")
+    donations.each {|donation| donation.update_column(:cause_id, holder.id)}
+  end
+
+  def backfill_causes(user)
+    causes = Cause.where(user_id: user.id)
+    holder = User.find_by(email: "gone@heaven.com")
+    causes.each { |cause| cause.update_column(:user_id, holder.id) }
+    causes.each { |cause| backfill_donations(cause) }
+  end
+
 end

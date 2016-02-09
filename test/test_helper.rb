@@ -36,22 +36,6 @@ module ActionDispatch
       click_on "Log Out"
     end
 
-    def create_eight_orders_for_user
-      user = create(:user)
-      staches = create_list(:stache, 3)
-      orders = create_list(:order, 8)
-      quantities = (1..5).to_a
-
-      orders.each do |order|
-        staches.each do |stache|
-          order.order_staches.create(stache_id: stache.id,
-                                     quantity: quantities.sample)
-        end
-      end
-
-      user.orders << orders
-    end
-
     def featured_cause_user!
       User.create!(
       username:     'mike_dao',
@@ -69,6 +53,14 @@ module ActionDispatch
       user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
       category_id: 1,
       current_status: 'active'
+      )
+    end
+
+    def deleted_user_placeholder
+      user = User.create!(
+      username: "Dead Person",
+      email: "gone@heaven.com",
+      password_digest: User.digest('password')
       )
     end
 
