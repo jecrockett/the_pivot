@@ -53,8 +53,14 @@ class ApplicationController < ActionController::Base
   def backfill_causes(user)
     causes = Cause.where(user_id: user.id)
     holder = User.find_by(email: "gone@heaven.com")
-    causes.each { |cause| cause.update_column(:user_id, holder.id) }
-    causes.each { |cause| backfill_donations(cause) }
+    causes.each { |cause| package_cause_for_death(cause, holder) }
+  end
+
+  def package_cause_for_death(cause, holder)
+    backfill_donations(cause)
+    cause.update_column(:user_id, holder.id)
+    cause.update_column(:current_status, "deleted")
+    # cause.delete
   end
 
 end

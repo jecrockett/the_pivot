@@ -29,12 +29,23 @@ class UserCanDeleteAccountTest < ActionDispatch::IntegrationTest
     assert_equal "Automatic Dispensing Cereal Machine", cause.title
     click_on "Delete Account"
 
-    assert_equal root_path, current_path
-
     donation =  Donation.find(donation_id)
     assert donation
 
     cause = Cause.find(donation.cause_id)
     assert_equal "Dead Dream", cause.title
+  end
+
+  test "causes not associated with user after deletion" do
+    user = users(:carl)
+    log_in(user)
+    cause_id = user.causes.first.id
+
+    visit edit_user_path(user)
+
+    click_on "Delete Account"
+
+    cause = Cause.find(cause_id)
+    assert_equal "Dead Person", cause.user.username
   end
 end
