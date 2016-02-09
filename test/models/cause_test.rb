@@ -97,7 +97,7 @@ class CauseTest < ActiveSupport::TestCase
   test "pending causes class method returns all causes with pending status" do
     pending_cause = causes(:bad_idea)
 
-    assert_equal 1, Cause.pending_causes.count
+    assert_equal 2, Cause.pending_causes.count
     assert_difference 'Cause.pending_causes.count', -1 do
       pending_cause.destroy
     end

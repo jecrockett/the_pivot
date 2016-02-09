@@ -1,16 +1,15 @@
 <div class="container center-align">
   <h4 class="center-align">Admin Dashboard</h4>
-  <%= link_to "View Causes", root_path, class: "btn admin-btn" %>
-  <%= link_to "View Users", root_path, class: "btn admin-btn" %>
+  <input value="View Users" type="button" class="btn admin-btn" onClick="document.getElementById('all_users').scrollIntoView();" />
   <div class="admin-data row">
     <div class="col s12 m8 l8">
-      <div class="box">
-        <h5 class="center">Recent Donations</h5>
+      <h5 class="center colored">Recent Donations</h5>
+      <div class="box collection">
         <table>
           <thead>
             <tr>
               <th data-field="date">Date</th>
-              <th data-field="amount">Amount</th>
+              <th data-field="$$$">Amount</th>
               <th data-field="cause">Cause</th>
               <th data-field="user">User</th>
             </tr>
@@ -22,7 +21,7 @@
                 <td>$<%= donation.amount %></td>
                 <td><%= link_to Cause.find(donation.cause_id).title,
                         user_cause_path(Cause.find(donation.cause_id).user,
-                        Cause.find(donation.cause_id))%></td>
+                        Cause.find(donation.cause_id), class: 'blue-text')%></td>
                 <td><%= User.find(donation.user_id).username %></td>
               </tr>
             <% end %>
@@ -31,22 +30,49 @@
       </div>
     </div>
     <div class="col s12 m4 l4">
-      <div class="box">
-        <h5 class="center">Pending Causes</h5>
+      <h5 class="center colored">Pending Causes</h5>
+      <div class="box pending collection">
         <div class="collection">
           <% @pending_causes.each do |cause| %>
+          <div class="collection-item <%= cause.title.delete(' ') %>">
             <%= link_to cause.title, user_cause_path(cause.user, cause),
                 class: "collection-item" %>
-            <%= form_for([cause.user, cause]) do |f|  %>
-              <%= f.hidden_field :current_status, value: 'active' %>
-              <%= f.submit "Accept", class: "btn"  %>
-            <% end %>
-            <%= form_for([cause.user, cause]) do |f|  %>
-              <%= f.hidden_field :current_status, value: 'inactive' %>
-              <%= f.submit "Reject", class: "btn red"  %>
-            <% end %>
+            <%= link_to "Accept", user_cause_path(cause.user, cause,
+                "cause[current_status]" => "active"), method: :patch, class: "btn green" %>
+            <%= link_to "Reject", user_cause_path(cause.user, cause,
+                "cause[current_status]" => "inactive"), method: :patch, class: "btn red" %>
+          </div>
+          <br>
           <% end %>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-data row center" id="all_users">
+    <div class="col s12 m12 l12">
+      <h5 class="center colored">All Users</h5>
+      <div class="box collection">
+        <table>
+          <thead>
+            <tr>
+              <th data-field="date">Joined</th>
+              <th data-field="amount">Name</th>
+              <th data-field="cause">Email</th>
+              <th data-field="user">Causes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr id="table-row collection-item">
+                <td><%= user.created_at.to_s.split(' ').first %></td>
+                <td><%= link_to user.username, user_path(user)%></td>
+                <td>$<%= user.email %></td>
+                <td><%= user.causes.count %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
