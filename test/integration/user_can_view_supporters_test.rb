@@ -1,7 +1,9 @@
 require 'test_helper'
 
-class UserCanViewSupportersTest < ActionDispatch::IntegrationTest
-  test "user can view supporters of their cause" do
+class UserAndVisitorCanViewSupportersTest < ActionDispatch::IntegrationTest
+  test "user and Visitor can view cause supporters of their cause" do
+    featured_cause_user!
+    create_featured_causes!
     user = users(:carl)
     supporter = users(:bernie)
     donation = user.causes.first.donations.first
@@ -9,7 +11,13 @@ class UserCanViewSupportersTest < ActionDispatch::IntegrationTest
     log_in(user)
     visit user_cause_path(user, user.causes.first)
 
-    within('.cause_supporters') do
+    within('#cause_supporters') do
+      assert page.has_content?(supporter.username)
+    end
+    log_out
+    visit user_cause_path(user, user.causes.first)
+
+    within('#cause_supporters') do
       assert page.has_content?(supporter.username)
     end
   end

@@ -152,7 +152,7 @@ a {
 }
 
 .cause-img-container {
-  height: 140px;
+  height: 200px;
   width: 95%;
   img {
     max-width: 100%;
@@ -194,6 +194,8 @@ a {
 
 .cause-stats-container {
   margin: 50px 0 80px 0;
+  background: papayawhip;
+  border-radius: 10%;
   p {
     padding-top: 40px;
   }

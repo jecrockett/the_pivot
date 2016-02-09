@@ -3,7 +3,7 @@
     <div id="cause-card-header">
       <h3 class="col s12 center-align"> <%= @cause.title %></h3>
       <% if current_user_id == @cause.user_id %>
-        <span>Other Admins: <%= get_other_admins(@cause)%></span> <br>
+        <span id="admins">Other Admins: <%= get_other_admins(@cause)%></span> <br>
         <span> <%= link_to "Edit Your Dream", edit_user_cause_path(@cause.user, @cause) %></span>
         <%= link_to "Delete Dream", user_cause_path(@cause.user, @cause), method: :delete %>
       <% end %>
@@ -20,19 +20,20 @@
       <div class="cause-stats-container center row">
         <div class="col s6">
           <p>Supporters:</p>
-          <span><%= @cause.total_supporters %></span>
-          <div id="donations-received">
-            <p>Donations:</p>
-            <span> <%= @cause.donation_count %> </span>
+          <input value="<%= @cause.total_supporters %>" type="button" class="btn-floating white-text" onClick="document.getElementById('cause_supporters').scrollIntoView();" />
+          <div id="amount-raised">
+            <p>$ Raised:</p>
+            <span><%= @cause.amount_raised %></span>
           </div>
         </div>
         <div class="col s6">
-          <div id="amount-raised">
-            <p>Amount Raised:</p>
-            <span><%= @cause.amount_raised %></span>
+          <div id="donations-received">
+            <p>Donations:</p>
+            <input value="<%= @cause.donation_count %>" type="button" class="btn-floating white-text" onClick="document.getElementById('cause_supporters').scrollIntoView();" />
           </div>
+
           <p>Target Goal:</p>
-          <span><%= @cause.goal %></span>
+          <span>$<%= @cause.goal %></span>
         </div>
       </div>
       <div class="input-field">
@@ -51,3 +52,13 @@
     </div> <!-- end of second cause card column -->
   </div> <!-- end of card content -->
 </div> <!-- end of card row -->
+<div class="col s12 m3 l3 container" id="cause_supporters">
+  <div class="box">
+    <h5 class="center">Cause Donations</h5>
+    <div class="collection">
+      <% @cause.donations.each do |donation| %>
+        <%= link_to "#{User.find(donation.user_id).username} - $#{donation.amount}" , user_path(donation.user_id), class: "collection-item btn pink white-text" %>
+      <% end %>
+    </div>
+  </div>
+</div>

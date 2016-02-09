@@ -7,12 +7,16 @@ class CauseOwnerCanAddAnotherCauseAdminTest < ActionDispatch::IntegrationTest
     log_in(user1)
     visit user_cause_path(user1, user1.causes.first)
 
-    refute page.has_content?("#{user2.username}")
+    within('#admins') do
+      refute page.has_content?("#{user2.username}")
+    end
 
     click_on "Edit Your Dream"
     fill_in "Add another dream admin (enter a user's email)", with: user2.email
     click_on "Submit"
 
-    assert page.has_content?("#{user2.username}")
+    within('#admins') do
+      assert page.has_content?("#{user2.username}")
+    end
   end
 end
