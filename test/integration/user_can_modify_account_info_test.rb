@@ -20,13 +20,16 @@ class UserCanOnlyModifyOwnAccountInfoTest < ActionDispatch::IntegrationTest
     assert_equal user_path(user), current_path
   end
 
-  # test "admin cannot access another user's edit page" do
-  #   user = User.create(username: "user", password: "password")
-  #   admin = User.create(username: "admin", password: "password", role: 1)
-  #   ApplicationController.any_instance.stubs(:current_user).returns(admin)
-  #
-  #   visit edit_user_path(user)
-  #
-  #   assert page.has_content?("The page you were looking for doesn't exist.")
-  # end
+  test "visitor cannot modify an account" do
+    featured_cause_user!
+    create_featured_causes!
+    user = users(:carl)
+
+    visit user_path(user)
+    refute page.has_content?("Edit Account Info")
+
+    visit edit_user_path(user)
+
+    assert_equal root_path, current_path
+  end
 end

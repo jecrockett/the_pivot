@@ -91,7 +91,6 @@ a {
 /* CATEGORIES INDEX */
 .colored {
   color: #f35626;
-  font-size: 1.5em;
   background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -135,6 +134,8 @@ a {
   height: 140px;
   max-height: 140px;
   font-size: 10px;
+  background: aliceblue;
+  color: black;
 }
 
 .cause-donated {
@@ -143,6 +144,7 @@ a {
   margin: 0 auto;
   margin-bottom: 5px;
   width: 95%;
+  background: antiquewhite;
 }
 
 .causes-container {
@@ -152,7 +154,7 @@ a {
 }
 
 .cause-img-container {
-  height: 200px;
+  height: 95%;
   width: 95%;
   img {
     max-width: 100%;

@@ -1,11 +1,11 @@
 <div id="cause-card" class="card row">
   <div class="card-content white darken-1">
     <div id="cause-card-header">
-      <h3 class="col s12 center-align"> <%= @cause.title %></h3>
+      <h2 class="col s12 center-align colored"> <%= @cause.title %></h2>
       <% if current_user_id == @cause.user_id %>
         <span id="admins">Other Admins: <%= get_other_admins(@cause)%></span> <br>
-        <span> <%= link_to "Edit Your Dream", edit_user_cause_path(@cause.user, @cause) %></span>
-        <%= link_to "Delete Dream", user_cause_path(@cause.user, @cause), method: :delete %>
+        <span> <%= link_to "Edit Your Dream", edit_user_cause_path(@cause.user, @cause), class: "btn" %></span>
+        <%= link_to "Delete Dream", user_cause_path(@cause.user, @cause), method: :delete, class: "btn" %>
       <% end %>
     </div>
     <div class="cause-info-container col s8">
@@ -38,9 +38,7 @@
       </div>
       <div class="input-field">
         <%= form_for(@donation) do |f| %>
-
           <%= render "shared/error_messages", object: f.object %>
-
           <%= f.label :amount %>
           <%= f.text_field :amount %>
           <%= f.hidden_field :user_id, :value => current_user_id %>
@@ -52,12 +50,12 @@
     </div> <!-- end of second cause card column -->
   </div> <!-- end of card content -->
 </div> <!-- end of card row -->
-<div class="col s12 m3 l3 container" id="cause_supporters">
+<div class="col s12 m3 l3 container" id="cause_supporters"><!-- table of contributors  -->
   <div class="box">
-    <h5 class="center">Cause Donations</h5>
+    <h5 class="center">Dream Supporters</h5>
     <div class="collection">
       <% @cause.donations.each do |donation| %>
-        <%= link_to "#{User.find(donation.user_id).username} - $#{donation.amount}" , user_path(donation.user_id), class: "collection-item btn pink white-text" %>
+        <%= link_to "#{User.find(donation.user_id).username} - $#{donation.amount}" , user_path(donation.user_id), class: "collection-item btn pink lighten-2 white-text" %>
       <% end %>
     </div>
   </div>

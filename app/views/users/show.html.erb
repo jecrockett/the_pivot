@@ -1,5 +1,5 @@
 <div class="container user-header center">
-  <h3><%= @user.username %>'s Dream Board</h3>
+  <h3><%= @user.username.capitalize %>'s Dream Board</h3>
   <% if current_user_id == @user.id %>
     <span><%= link_to "Edit Account Info", edit_user_path(@user), class: "btn light-green darken-4" %></span>
     <span><%= link_to "Build a Dream", new_user_cause_path(@user), class: "btn light-green darken-4" %></span>
