@@ -22,7 +22,7 @@ class DonationsController < ApplicationController
   private
 
   def donation_params
-    params.require(:donation).permit(:amount, :user_id, :cause_id)
+    params.require(:donation).permit(:amount, :user_id, :cause_id, :cause_name)
   end
 
   def confirm_current_user

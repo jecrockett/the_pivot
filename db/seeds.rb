@@ -110,7 +110,8 @@ class Seed
       5.times do |i|
         donation = Donation.create(amount: rand(1..200),
                                    user_id: User.pluck(:id).sample,
-                                   cause_id: cause.id)
+                                   cause_id: cause.id,
+                                   cause_name: cause.title)
         cause.donations << donation
         puts "#{cause.title} received #{cause.donations.last.amount} dollars!"
       end

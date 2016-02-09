@@ -15,6 +15,11 @@ class Cause < ActiveRecord::Base
     Donation.where(cause_id: self.id).pluck(:user_id).uniq.count
   end
 
+  def supporters
+    supporters = Donation.where(cause_id: self.id).pluck(:user_id)
+    supporters.map {|suppporter| User.find(suppporter)}
+  end
+
   def self.active_causes
     where(current_status: "active")
   end

@@ -58,7 +58,8 @@ class Users::CausesController < ApplicationController
                                     :category_id,
                                     :user_id,
                                     :other_admins,
-                                    :current_status)
+                                    :current_status,
+                                    :image_url)
     end
 
     def valid_cause_owner?

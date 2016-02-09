@@ -10,7 +10,7 @@ class UserCannotEditOtherUsersCauseTest < ActionDispatch::IntegrationTest
   test "user cannot edit other user's cause" do
     user_1 = users(:carl)
     user_2 = users(:bernie)
-    cause = user_1.causes.last
+    cause = user_1.causes.first
 
     log_in(user_2)
     visit user_cause_path(user_1, cause)
