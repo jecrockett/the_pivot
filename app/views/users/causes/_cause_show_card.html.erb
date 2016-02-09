@@ -16,6 +16,7 @@
         <%= image_tag(@cause.image_url, class: "valign") %>
       </div>
       <p>
+        <br>
         <%= @cause.description %>
       </p>
     </div> <!-- end of img and description column -->
@@ -53,7 +54,7 @@
     </div> <!-- end of second cause card column -->
   </div> <!-- end of card content -->
 </div> <!-- end of card row -->
-<div id="chart container">
-  <h5>Funds Raised:</h5>
+<div id="chart">
+  <h5 class="center">Funds Raised (<%= @cause.donation_count %> donations)</h5>
   <%= pie_chart({"Goal" => @cause.goal, "Raised" => @cause.amount_raised}) %>
 </div>
