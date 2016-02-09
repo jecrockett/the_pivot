@@ -131,8 +131,8 @@ class Seed
     Cause.create!(
     title: "Colonize The Moon",
     description: "Act now before Elon Musk owns the whole damn thing",
-    image_url: "http://oi67.tinypic.com/eq2edd.jpg",
-    goal: 1000000,
+    image_url: '/assets/moon-pic.jpg',
+    goal: 100000,
     user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
     category_id: Category.pluck(:id).sample,
     current_status: "active")
@@ -142,7 +142,7 @@ class Seed
     Cause.create!(
     title: "Potato Salad",
     description: "Leonard's greatest ambition is to make Potato Salad",
-    image_url: "https://www.omegafi.com/apps/home/wp-content/uploads/2015/08/potato-salad-the-good-one.jpg",
+    image_url: "/assets/potato-salad.jpg",
     goal: 13,
     user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
     category_id: Category.pluck(:id).sample,
