@@ -19,6 +19,9 @@ a {
 
 a:hover {
   color: orange;
+  h6 {
+    color:orange;
+  }
 }
 
 .btn {
@@ -87,6 +90,12 @@ a:hover {
 
 #slider .indicator-item.active {
   background-color: orange;
+
+/* ABOUT */
+
+.about {
+  border-radius: 5%;
+  height: 250px;
 }
 
 /* HOME */
