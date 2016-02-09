@@ -18,10 +18,10 @@ class Users::CausesController < ApplicationController
     @cause = Cause.new(cause_params)
     if @cause.save
       @cause.other_admins << params[:cause][:other_admins]
-      flash[:notice] = "You dreamt about a #{@cause.title}"
+      flash[:success] = "You dreamt about a #{@cause.title}"
       redirect_to user_cause_path(current_user, @cause)
     else
-      flash.now[:notice] = "Uh oh! You're not done dreaming. :`("
+      flash.now[:error] = "Uh oh! You're not done dreaming. :`("
       render :new
     end
   end
