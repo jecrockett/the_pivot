@@ -2,6 +2,7 @@ require 'test_helper'
 
 class CauseTest < ActiveSupport::TestCase
   should validate_presence_of(:title)
+  should validate_presence_of(:description)
   should validate_presence_of(:goal)
   should validate_numericality_of(:goal)
   should validate_presence_of(:user_id)
@@ -18,6 +19,11 @@ class CauseTest < ActiveSupport::TestCase
 
   test "title cannot be empty" do
     @cause.title = " "
+    refute @cause.valid?
+  end
+
+  test "description cannot be empty" do
+    @cause.description = " "
     refute @cause.valid?
   end
 
