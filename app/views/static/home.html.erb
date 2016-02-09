@@ -1,22 +1,12 @@
 <div class="slider">
   <ul class="slides">
     <li>
-      <%= image_tag(@moon.image_url) %>
+      <%= image_tag('/assets/moon-pic.jpg', id:"moon-pic") %>
       <div class="caption moon right-align">
         <h3><%= @moon.title %></h3>
         <h5><%= @moon.description %></h5>
         <h5 class="light grey-text text-lighten-3">
           <%= link_to "Donate", user_cause_path(@moon.user, @moon), class: "btn" %>
-        </h5>
-      </div>
-    </li>
-    <li>
-      <%= image_tag(@potato.image_url) %>
-      <div class="caption potato left-align">
-        <h3><%= @potato.title %></h3>
-        <h5><%= @potato.description %></h5>
-        <h5 class="light grey-text text-lighten-3">
-          <%= link_to "Donate", user_cause_path(@potato.user, @potato), class: "btn" %>
         </h5>
       </div>
     </li>
@@ -27,6 +17,16 @@
         <h5 class="squirrel-description"><%= @squirrel.description %></h5>
         <h5 class="light grey-text text-lighten-3">
           <%= link_to "Donate", user_cause_path(@squirrel.user, @squirrel), class: "btn" %>
+        </h5>
+      </div>
+    </li>
+    <li>
+      <%= image_tag('/assets/potato-salad.jpg', id:"tater-salad-pic") %>
+      <div class="caption potato right-align">
+        <h3><%= @potato.title %></h3>
+        <h5><%= @potato.description %></h5>
+        <h5 class="light grey-text text-lighten-3">
+          <%= link_to "Donate", user_cause_path(@potato.user, @potato), class: "btn" %>
         </h5>
       </div>
     </li>
@@ -57,22 +57,22 @@
   <div class="col s4">
     <div class="center promo">
       <%= image_tag('http://i2.wp.com/lolzombie.com/wp-content/uploads/2013/06/197803_442446802513428_3302503_n.jpg?resize=500%2C386', class: "homepage-outer-img") %>
-      <p class="promo-caption">Build Your Dream</p>
-      <p class="light center">Remember when you were 4 and you wanted to ride your tricycle to the ocean? You can do that now</p>
+      <h6 class="promo-caption">Build Your Dream</h6>
+      <p class="light center about-blurb">Remember when you were 4 and you wanted to ride your tricycle to the ocean? You can do that now</p>
     </div>
   </div>
   <div class="col s4">
     <div class="center promo">
       <%= image_tag('https://s-media-cache-ak0.pinimg.com/564x/3b/7f/c8/3b7fc862d7edbee1b0c44b0813d4b2a7.jpg', class: "homepage-middle-img") %>
-      <p class="promo-caption">Support A Dream</p>
-      <p class="light center">Help fellow dreamers reach never before seen heights</p>
+      <h6>Support A Dream</h6>
+      <p class="light center about-blurb">Help fellow dreamers reach never before seen heights</p>
     </div>
   </div>
   <div class="col s4">
     <div class="center promo">
       <%= image_tag('https://pbs.twimg.com/media/BpBAYdyIQAEdSCg.png', class: "homepage-outer-img") %>
-      <p class="promo-caption">Join the Dreamers Community</p>
-      <p class="light center">We did the heavy liftig balbalkjdfasidfj</p>
+      <h6>Join the Dreamers Community</h6>
+      <p class="light center about-blurb">We did the heavy liftig balbalkjdfasidfj</p>
     </div>
   </div>
 
