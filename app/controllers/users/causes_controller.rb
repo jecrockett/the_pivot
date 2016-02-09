@@ -31,7 +31,7 @@ class Users::CausesController < ApplicationController
   end
 
   def update
-    @cause = current_user.causes.find(params[:id])
+    @cause = Cause.find(params[:id])
     update_cause_attribues
     if URI(request.referrer).path == admin_dashboard_path
       redirect_to admin_dashboard_path

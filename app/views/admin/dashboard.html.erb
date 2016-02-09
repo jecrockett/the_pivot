@@ -31,20 +31,18 @@
       </div>
     </div>
     <div class="col s12 m4 l4">
-      <div class="box">
+      <div class="box pending">
         <h5 class="center">Pending Causes</h5>
         <div class="collection">
           <% @pending_causes.each do |cause| %>
+          <div class="<%= cause.title.delete(' ') %>">
             <%= link_to cause.title, user_cause_path(cause.user, cause),
                 class: "collection-item" %>
-            <%= form_for([cause.user, cause]) do |f|  %>
-              <%= f.hidden_field :current_status, value: 'active' %>
-              <%= f.submit "Accept", class: "btn"  %>
-            <% end %>
-            <%= form_for([cause.user, cause]) do |f|  %>
-              <%= f.hidden_field :current_status, value: 'inactive' %>
-              <%= f.submit "Reject", class: "btn red"  %>
-            <% end %>
+            <%= link_to "Accept", user_cause_path(cause.user, cause,
+                "cause[current_status]" => "active"), method: :patch, class: "btn green right" %>
+            <%= link_to "Reject", user_cause_path(cause.user, cause,
+                "cause[current_status]" => "inactive"), method: :patch, class: "btn red right" %>
+          </div>
           <% end %>
         </div>
       </div>
