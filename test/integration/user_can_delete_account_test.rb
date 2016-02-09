@@ -8,14 +8,33 @@ class UserCanDeleteAccountTest < ActionDispatch::IntegrationTest
     create_featured_causes!
   end
 
-  test "the truth" do
+  test "users can delete their causes" do
     user = users(:carl)
     log_in(user)
 
     visit edit_user_path(user)
     click_on "Delete Account"
     visit "/users/1"
-    
+
     assert_equal root_path, current_path
+  end
+
+  test "donation history still exists after cause deletion" do
+    user = users(:carl)
+    log_in(user)
+    cause = user.causes.first
+    donation_id = cause.donations.first.id
+
+    visit edit_user_path(user)
+    assert_equal "Automatic Dispensing Cereal Machine", cause.title
+    click_on "Delete Account"
+
+    assert_equal root_path, current_path
+
+    donation =  Donation.find(donation_id)
+    assert donation
+
+    cause = Cause.find(donation.cause_id)
+    assert_equal "Dead Dream", cause.title
   end
 end
