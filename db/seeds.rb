@@ -135,6 +135,7 @@ class Seed
     goal: 1000000,
     user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
     category_id: Category.pluck(:id).sample)
+    current_status: "active"
   end
 
   def potato
@@ -145,6 +146,7 @@ class Seed
     goal: 13,
     user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
     category_id: Category.pluck(:id).sample)
+    current_status: "active"
   end
 
   def squirrel
@@ -155,6 +157,7 @@ class Seed
     goal: 25000,
     user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
     category_id: Category.pluck(:id).sample)
+    current_status: "active"
   end
 
   def ostrich
@@ -165,6 +168,7 @@ class Seed
     goal: 3800,
     user_id: User.find_by(email: "mike_dao@dreambuilder.com").id,
     category_id: Category.pluck(:id).sample)
+    current_status: "active"
   end
 end
 
