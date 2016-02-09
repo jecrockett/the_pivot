@@ -46,7 +46,7 @@
 <div class="container">
   <h1>DreamBuilder</h1>
   <p>
-    Here at DreamBuilder, we encourage all our dreamers to shoot for the moon because if they miss, they'll land among the stars!
+    Here at DreamBuilder, we encourage all our dreamers to shoot for the moon - if they miss, they'll land among the stars!
   </p>
 </div>
 
@@ -56,24 +56,45 @@
 
   <div class="col s4">
     <div class="center promo">
-      <%= image_tag('http://i2.wp.com/lolzombie.com/wp-content/uploads/2013/06/197803_442446802513428_3302503_n.jpg?resize=500%2C386', class: "homepage-outer-img") %>
-      <h6 class="promo-caption">Build Your Dream</h6>
-      <p class="light center about-blurb">Remember when you were 4 and you wanted to ride your tricycle to the ocean? You can do that now</p>
+      <% if current_user %>
+        <%= link_to new_user_cause_path(current_user) do %>
+          <%= image_tag('http://i2.wp.com/lolzombie.com/wp-content/uploads/2013/06/197803_442446802513428_3302503_n.jpg?resize=500%2C386', class: "homepage-outer-img") %>
+          <h6 class="promo-caption">Build Your Dream</h6>
+          <p class="light center about-blurb">Remember when you were 4 and you wanted to ride your tricycle to the ocean? You can do that now.</p>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_path do %>
+          <%= image_tag('http://i2.wp.com/lolzombie.com/wp-content/uploads/2013/06/197803_442446802513428_3302503_n.jpg?resize=500%2C386', class: "homepage-outer-img") %>
+          <h6 class="promo-caption">Build Your Dream</h6>
+          <p class="light center about-blurb">Remember when you were 4 and you wanted to ride your tricycle to the ocean? You can do that now.</p>
+        <% end %>
+      <% end %>
     </div>
   </div>
   <div class="col s4">
     <div class="center promo">
-      <%= image_tag('https://s-media-cache-ak0.pinimg.com/564x/3b/7f/c8/3b7fc862d7edbee1b0c44b0813d4b2a7.jpg', class: "homepage-middle-img") %>
-      <h6>Support A Dream</h6>
-      <p class="light center about-blurb">Help fellow dreamers reach never before seen heights</p>
+      <%= link_to categories_path do %>
+        <%= image_tag('http://wallpapercave.com/wp/6UGe1vL.png', class: "homepage-outer-img") %>
+        <h6>Support A Dream</h6>
+        <p class="light center about-blurb">Be a hero. Make a difference. Help fellow dreamers reach never before seen heights.</p>
+      <% end %>
     </div>
   </div>
   <div class="col s4">
     <div class="center promo">
-      <%= image_tag('https://pbs.twimg.com/media/BpBAYdyIQAEdSCg.png', class: "homepage-outer-img") %>
-      <h6>Join the Dreamers Community</h6>
-      <p class="light center about-blurb">We did the heavy liftig balbalkjdfasidfj</p>
+      <% if current_user %>
+        <%= link_to categories_path do %>
+          <%= image_tag('https://pbs.twimg.com/media/BpBAYdyIQAEdSCg.png', class: "homepage-outer-img") %>
+          <h6 class="promo-caption">Need Inspiration? Explore Dreams</h6>
+          <p class="light center about-blurb">Our community of Dreamers have over 1,000 dreams in progress. Let them drop some dream knowledge on you.</p>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_path do %>
+          <%= image_tag('https://pbs.twimg.com/media/BpBAYdyIQAEdSCg.png', class: "homepage-outer-img") %>
+          <h6 class="promo-caption">Join The Dreamers Community</h6>
+          <p class="light center about-blurb">Our Dreamers made the legendary Clapper a reality. You know you want a piece of that action.</p>
+        <% end %>
+      <% end %>
     </div>
   </div>
-
 </div>
