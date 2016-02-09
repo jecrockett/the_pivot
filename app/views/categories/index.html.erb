@@ -5,9 +5,14 @@
   </div>
 </div>
 
-<div class="container">
-  <h2>Featured Cause</h2>
-  <p>
-    Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
-  </p>
+<div class="container center">
+  <h3>Featured Dream</h3>
+  <%= image_tag("#{@cause.image_url}", id:"cause-img-container left") %>
+  <div class="center">
+    <h3><%= @cause.title %></h3>
+    <h6 class="center-text"><%= @cause.description %></h6>
+    <h6 class="light grey-text text-lighten-3">
+      <%= link_to "Donate", user_cause_path(@cause.user, @cause), class: "btn" %>
+    </h6>
+  </div>
 </div>

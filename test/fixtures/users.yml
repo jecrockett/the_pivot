@@ -14,5 +14,5 @@ admin:
   id: 3
   username: Admin
   password_digest: <%= User.digest('password') %>
-  email: admin@admin.com
+  email: admin@dreambuilder.com
   role: 1

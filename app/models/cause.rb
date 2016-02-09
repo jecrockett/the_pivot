@@ -2,6 +2,9 @@ class Cause < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   has_many :donations
+  validates :title, presence: true, uniqueness: true
+  validates :description, presence: true, uniqueness: true
+  validates :goal, presence: true
 
   validates :title, presence: true
   validates :goal, presence: true, numericality: { only_integer: true }
