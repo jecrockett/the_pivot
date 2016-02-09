@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :user_exists?, only: [:show]
   before_action :valid_user?, only: [:edit, :update]
+  after_action :clear_attempted_donation, only: [:create]
 
   def new
     @user = User.new
@@ -9,10 +10,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      path = redirect_path(user_path(@user))
-      session[:attempted_donation] = nil
       session[:user_id] = @user.id
-      redirect_to path
+      flash[:success] = "Start dreaming, #{current_user.username} :-)"
+      login_redirect(@user)
     else
       render :new
     end
@@ -45,10 +45,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def redirect_back_or(default)
-    session[:attempted_donation] || default
-  end
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)

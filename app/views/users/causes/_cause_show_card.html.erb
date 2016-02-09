@@ -50,13 +50,3 @@
     </div> <!-- end of second cause card column -->
   </div> <!-- end of card content -->
 </div> <!-- end of card row -->
-<div class="col s12 m3 l3 container" id="cause_supporters"><!-- table of contributors  -->
-  <div class="box">
-    <h5 class="center">Dream Supporters</h5>
-    <div class="collection">
-      <% @cause.donations.each do |donation| %>
-        <%= link_to "#{User.find(donation.user_id).username} - $#{donation.amount}" , user_path(donation.user_id), class: "collection-item btn pink lighten-2 white-text" %>
-      <% end %>
-    </div>
-  </div>
-</div>

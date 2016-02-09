@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  after_action :clear_attempted_donation, only: [:create]
+
   def new
   end
 
@@ -19,13 +21,4 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def login_redirect(user)
-    if session[:want_to_checkout]
-      redirect_to new_order_path
-    elsif current_admin?
-      redirect_to admin_dashboard_path
-    else
-      redirect_to user_path(user)
-    end
-  end
 end
