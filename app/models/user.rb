@@ -1,8 +1,11 @@
 class User < ActiveRecord::Base
   has_many :donations
   has_many :causes
-  validates :username, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :username, presence: true, length: { maximum: 25 }
+  valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: valid_email_regex },
+                    uniqueness: { case_sensitive: false }
   enum role: %w(default admin)
   has_secure_password
 

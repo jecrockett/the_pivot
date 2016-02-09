@@ -3,3 +3,15 @@ first:
   cause_id: 1
   cause_name: colonize_moon
   amount: 100
+
+second:
+  user_id: 2
+  cause_id: 1
+  cause_name: colonize_moon
+  amount: 200
+
+third:
+  user_id: 3
+  cause_id: 1
+  cause_name: colonize_moon
+  amount: 300

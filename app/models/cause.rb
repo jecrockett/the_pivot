@@ -3,21 +3,21 @@ class Cause < ActiveRecord::Base
   belongs_to :user
   has_many :donations
 
+  validates :title, presence: true
+  validates :goal, presence: true, numericality: { only_integer: true }
+  validates :user_id, presence: true
+  validates :category_id, presence: true
+
   def amount_raised
-    Donation.where(cause_id: self.id).sum(:amount) || 0
+    cause_donations.sum(:amount) || 0
   end
 
   def donation_count
-    Donation.where(cause_id: self.id).count
+    cause_donations.count
   end
 
   def total_supporters
-    Donation.where(cause_id: self.id).pluck(:user_id).uniq.count
-  end
-
-  def supporters
-    supporters = Donation.where(cause_id: self.id).pluck(:user_id)
-    supporters.map {|suppporter| User.find(suppporter)}
+    cause_donations.pluck(:user_id).uniq.count
   end
 
   def self.active_causes
@@ -27,4 +27,10 @@ class Cause < ActiveRecord::Base
   def self.pending_causes
     where(current_status: "pending")
   end
+
+  private
+
+    def cause_donations
+      Donation.where(cause_id: self.id)
+    end
 end
