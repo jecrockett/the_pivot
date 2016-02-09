@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
+    user = current_user
     holder = User.find_by(email: "gone@heaven.com")
     backfill_causes(user)
     user.delete
