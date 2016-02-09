@@ -64,7 +64,6 @@ class ApplicationController < ActionController::Base
     backfill_donations(cause)
     cause.update_column(:user_id, holder.id)
     cause.update_column(:current_status, "deleted")
-    # cause.delete
   end
 
 end
