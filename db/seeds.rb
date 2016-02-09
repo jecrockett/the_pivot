@@ -40,7 +40,7 @@ class Seed
     100.times do |i|
       cause = Cause.create!(
       title: Faker::Commerce.product_name,
-      description: Faker::Lorem.paragraph(2),
+      description: Faker::Lorem.paragraph(4),
       image_url: Faker::Avatar.image,
       goal: rand(100..100000),
       user_id: User.pluck(:id).sample,
@@ -55,7 +55,7 @@ class Seed
     10.times do |i|
       cause = Cause.create!(
       title: Faker::Commerce.product_name,
-      description: Faker::Lorem.paragraph(2),
+      description: Faker::Lorem.paragraph(4),
       image_url: Faker::Avatar.image,
       goal: rand(100..100000),
       user_id: User.pluck(:id).sample,

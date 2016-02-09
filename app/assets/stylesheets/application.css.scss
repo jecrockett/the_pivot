@@ -23,8 +23,28 @@ a {
 }
 
 .flash {
+  margin: 0 auto;
   text-align: center;
   margin-top: 20px;
+  padding: 5px;
+  width: 70%;
+  border: 2px solid;
+  border-radius: 5%;
+}
+
+.flash_success {
+  border-color: green;
+  background-color: #cdffd3;
+}
+
+.flash_error {
+  border-color: red;
+  background-color: #ffa5a5;
+}
+
+.flash_notice {
+  border-color: darkslategray;
+  background-color: #a6cccc;
 }
 
 /* HOMEPAGE SLIDER */
@@ -149,6 +169,9 @@ a {
   font-size: 10px;
   background: aliceblue;
   color: black;
+  h6 {
+    padding-top: 10px;
+  }
 }
 
 .cause-donated {
@@ -167,7 +190,7 @@ a {
 }
 
 .cause-img-container {
-  height: 95%;
+  height: 100px;
   width: 95%;
   img {
     max-width: 100%;
@@ -177,9 +200,15 @@ a {
 
 .cause-funds {
   font-size: 12px;
-  text-align: right;
+  position: absolute;
+  bottom: 0px;
+  left: 185px;
   span {
-    font-size: 12px;
+    font-size: 15px;
+  }
+  p {
+    display: inline-block;
+    padding-right: 15px;
   }
 }
 

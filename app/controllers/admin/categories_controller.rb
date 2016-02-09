@@ -10,9 +10,10 @@ module Admin
     def create
       @category = Category.new(category_params)
       if @category.save
-        flash[:notice] = "New category #{@category.title} created"
+        flash[:success] = "New category #{@category.title} created"
         redirect_to admin_categories_path
       else
+        flash[:error] = "Something went wrong, dreamer."
         render "index"
       end
     end
@@ -22,7 +23,7 @@ module Admin
 
     def update
       if @category.update(category_params)
-        flash[:notice] = "#{@category.title} updated"
+        flash[:success] = "#{@category.title} updated"
         redirect_to admin_categories_path
       else
         render "edit"
@@ -31,7 +32,7 @@ module Admin
 
     def destroy
       @category.destroy
-      flash[:notice] = "#{@category.title} removed"
+      flash[:success] = "#{@category.title} removed"
       redirect_to admin_categories_path
     end
 
