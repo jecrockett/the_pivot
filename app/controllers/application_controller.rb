@@ -40,9 +40,9 @@ class ApplicationController < ActionController::Base
      result
    end
 
-  def active_causes
-    Cause.where(category_id: params[:id], current_status: "active")
-  end
+  # def active_causes
+  #   Cause.where(category_id: params[:id], current_status: "active")
+  # end
 
   def cause_owner?
     params[:user].to_i == current_user_id
