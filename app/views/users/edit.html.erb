@@ -20,4 +20,7 @@
 
     <%= f.submit "Update Account", class: "wave-effect waves-light btn light-green darken-4" %>
   <% end  %>
+  <% if current_user_id == @user.id %>
+    <%= link_to "Delete Account", user_path(@user), method: :delete, class: "btn red right" %>
+  <% end %>
 </div>

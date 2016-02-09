@@ -1,6 +1,6 @@
 <% unless @cause.current_status == 'active' %>
   <span>
-    <h5><%= @cause.title %> is currently <%= @cause.current_status %>!</h5>
+    <h5 id="cause-status"><%= @cause.title %> is currently <%= @cause.current_status %>!</h5>
   </span>
 <% end %>
 <div class="container">

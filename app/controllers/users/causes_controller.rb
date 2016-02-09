@@ -27,11 +27,11 @@ class Users::CausesController < ApplicationController
   end
 
   def edit
-    @cause = Cause.find(params[:id])
+    @cause = current_user.causes.find(params[:id])
   end
 
   def update
-    @cause = Cause.find(params[:id])
+    @cause = current_user.causes.find(params[:id])
     update_cause_attribues
     if URI(request.referrer).path == admin_dashboard_path
       redirect_to admin_dashboard_path
@@ -41,10 +41,8 @@ class Users::CausesController < ApplicationController
   end
 
   def destroy
-    cause = Cause.find(params[:id])
-    donation = Donation.find_by(cause_id: cause.id)
-    holder = Cause.find_by(title: "Dead Dream")
-    donation.update_column(:cause_id, holder.id)
+    cause = current_user.causes.find(params[:id])
+    backfill_donations(cause)
     cause.delete
     redirect_to user_path(User.find(params[:user]))
   end
