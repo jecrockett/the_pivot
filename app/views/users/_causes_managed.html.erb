@@ -1,16 +1,16 @@
 <%= link_to user_cause_path(causes_managed.user, causes_managed) do %>
-  <li class="card cause-managed row">
+  <li class="card cause-managed">
     <h6 class="center"><%= causes_managed.title %></h6>
     <div class="cause-img-container col s3">
       <%= image_tag(causes_managed.image_url, class: "valign") %>
     </div>
     <div class="col s9">
       <p class="col left-align">
-        <%= causes_managed.description[0..50] %>
+        <%= causes_managed.description[0..185] %>...
       </p>
     </div>
-    <div class="cause-funds col s4">
-      <p>Raised: <span> <%= causes_managed.amount_raised %></span></p>
+    <div class="cause-funds center">
+      <p>Raised: <span> <%= causes_managed.amount_raised %></span>
       <p>Goal: <span><%= causes_managed.goal %></span></p>
     </div>
   </li>

@@ -26,6 +26,10 @@ class Cause < ActiveRecord::Base
     where(current_status: "active")
   end
 
+  def self.active_causes_for_category(params)
+    where(category_id: params[:id], current_status: "active")
+  end
+
   def self.pending_causes
     where(current_status: "pending")
   end

@@ -26,28 +26,28 @@ class Seed
   end
 
   def generate_users
-    20.times do |i|
+    120.times do |i|
       user = User.create!(
         username:     Faker::Name.name,
         email:    Faker::Internet.email,
         password_digest: User.digest('password'),
         )
-      puts "User #{i}: #{user.username} - #{user.email} created!"
+      puts "User #{i}: #{user.username} created!"
     end
   end
 
   def generate_causes
-    100.times do |i|
+    600.times do |i|
       cause = Cause.create!(
       title: Faker::Commerce.product_name,
-      description: Faker::Lorem.paragraph(2),
+      description: Faker::Lorem.paragraph(4),
       image_url: Faker::Avatar.image,
       goal: rand(100..100000),
       user_id: User.pluck(:id).sample,
       category_id: Category.pluck(:id).sample,
       current_status: 'active'
       )
-      puts "Cause #{i}: #{cause.title} - #{cause.user} created!"
+      puts "Cause #{i}: #{cause.title} created!"
     end
   end
 
@@ -55,13 +55,13 @@ class Seed
     10.times do |i|
       cause = Cause.create!(
       title: Faker::Commerce.product_name,
-      description: Faker::Lorem.paragraph(2),
+      description: Faker::Lorem.paragraph(4),
       image_url: Faker::Avatar.image,
       goal: rand(100..100000),
       user_id: User.pluck(:id).sample,
       category_id: Category.pluck(:id).sample,
       )
-      puts "Pending cause #{i}: #{cause.title} - #{cause.user} created!"
+      puts "Pending cause #{i}: #{cause.title} created!"
     end
   end
 
@@ -115,14 +115,15 @@ class Seed
   end
 
   def generate_donations
-    Cause.where(current_status: 'active').each do |cause|
-      5.times do |i|
-        donation = Donation.create(amount: rand(1..200),
-                                   user_id: User.pluck(:id).sample,
-                                   cause_id: cause.id,
-                                   cause_name: cause.title)
-        cause.donations << donation
-        puts "#{cause.title} received #{cause.donations.last.amount} dollars!"
+    User.all.each do |user|
+      10.times do |i|
+        cause_id = Cause.pluck(:id).sample
+        cause_title = Cause.find(cause_id).title
+        user.donations.create(amount: rand(1..200),
+                              user_id: User.pluck(:id).sample,
+                              cause_id: cause_id,
+                              cause_name: cause_title)
+        puts "#{user.username} donated to #{cause_title}!"
       end
     end
   end

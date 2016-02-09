@@ -26,3 +26,13 @@ bad_idea:
   user_id: 1
   category_id: 1
   current_status: pending
+
+grow_meat:
+  id: 4
+  title: Grow Meat!
+  description: Meat Farm.
+  image_url: http://imagesci.com/img/2013/11/planet-earth-from-the-moon-1886-hd-wallpapers.jpg
+  goal: 3300000
+  user_id: 1
+  category_id: 2
+  current_status: pending

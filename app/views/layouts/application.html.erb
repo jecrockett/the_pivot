@@ -15,15 +15,15 @@
     <div class="nav-wrapper">
       <a href="/" class="brand-logo"><%= image_tag("logo2white.png", :alt => "unicorn", class: "logo-img") %></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li> <%= link_to "Categories", categories_path %> </li>
+        <li> <%= link_to "Categories", categories_path, class: "colored hoverable" %> </li>
         <% if current_user %>
-          <li> <%= link_to "Build Your Dream", new_user_cause_path(current_user) %> </li>
-          <li> <%= link_to "User Dashboard", user_path(current_user) %></li>
-          <li> <%= link_to "Log Out (#{current_user.username})", logout_path, method: :delete %> </li>
+          <li> <%= link_to "Build Your Dream", new_user_cause_path(current_user), class: "colored hoverable" %> </li>
+          <li> <%= link_to "User Dashboard", user_path(current_user), class: "colored hoverable" %></li>
+          <li> <%= link_to "Log Out (#{current_user.username})", logout_path, method: :delete, class: "colored hoverable" %> </li>
           <% else %>
-          <li> <%= link_to "Build Your Dream", new_user_path %> </li>
-          <li> <%= link_to "Login", login_path %> </li>
-          <li> <%= link_to "Sign Up", new_user_path %> </li>
+          <li> <%= link_to "Build Your Dream", new_user_path, class: "colored hoverable" %> </li>
+          <li> <%= link_to "Login", login_path, class: "colored hoverable" %> </li>
+          <li> <%= link_to "Sign Up", new_user_path, class: "colored hoverable" %> </li>
         <% end %>
       </ul>
     </div>
@@ -37,12 +37,15 @@
 <br><br><br><br><br>
 <footer class="footer-bar">
   <div class="footer-content">
-    <p class="black-text text-lighten-5 footer-content hide-on-small-only">
+    <p class="colored footer-content hide-on-small-only">
        ...to the moon!!!!!!
     </p>
     <a href="/"><h5 class="white-text footer-content">Dream Builder</h5></a>
   </div>
   <a class="white-text footer-link" href="/about">Contact</a>
+  <% if current_user && current_user.admin? %>
+    <%= link_to "Admin Dashboard", admin_dashboard_path, class: "red-text footer-link" %></li>
+  <% end %>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>

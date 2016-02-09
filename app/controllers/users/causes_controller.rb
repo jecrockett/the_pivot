@@ -18,10 +18,10 @@ class Users::CausesController < ApplicationController
     @cause = Cause.new(cause_params)
     if @cause.save
       @cause.other_admins << params[:cause][:other_admins]
-      flash[:notice] = "You dreamt about a #{@cause.title}"
+      flash[:success] = "You dreamt about a #{@cause.title}"
       redirect_to user_cause_path(current_user, @cause)
     else
-      flash.now[:notice] = "Uh oh! You're not done dreaming. :`("
+      flash.now[:error] = "Uh oh! You're not done dreaming. :`("
       render :new
     end
   end
@@ -31,7 +31,7 @@ class Users::CausesController < ApplicationController
   end
 
   def update
-    @cause = current_user.causes.find(params[:id])
+    @cause = Cause.find(params[:id])
     update_cause_attribues
     if URI(request.referrer).path == admin_dashboard_path
       redirect_to admin_dashboard_path
