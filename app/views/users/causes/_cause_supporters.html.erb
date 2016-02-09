@@ -1,0 +1,10 @@
+<div class="container" id="cause_supporters"><!-- table of contributors  -->
+  <div class="box">
+    <h5 class="center">Dream Supporters</h5>
+    <div class="collection">
+      <% @cause.donations.each do |donation| %>
+        <%= link_to "#{donation.username} - $#{donation.amount}", user_path(donation.user_id), class: "collection-item btn pink lighten-2 white-text" %>
+      <% end %>
+    </div>
+  </div>
+</div>
