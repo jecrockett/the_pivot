@@ -6,7 +6,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: darkolivegreen;
+  color: darkslategray;
 }
 
 h6 {
@@ -14,7 +14,12 @@ h6 {
 }
 
 a {
-  color: forestgreen;
+  color: darkslategray;
+}
+
+.btn {
+  background-color: darkslategray;
+  color: white;
 }
 
 .flash {
@@ -33,6 +38,9 @@ a {
 
 .squirrel * {
   color: black;
+  a {
+    color: white;
+  }
 }
 
 .squirrel-description {
@@ -57,6 +65,10 @@ a {
 
 .homepage-middle-img {
   height: 200px;
+}
+
+.about-blurb {
+  font-size: 12px;
 }
 
 /* NAVIGATION */
