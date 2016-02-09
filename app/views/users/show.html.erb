@@ -9,7 +9,7 @@
 <div class="row">
   <div class="col s6">
     <div id="causes-managed" class="causes-container">
-    <h4 class="center">Causes You Manage</h4>
+    <h4 class="center">Causes Managed</h4>
       <ul>
         <%= render partial: "users/causes_managed", collection: @user.causes %>
       </ul>
@@ -17,7 +17,7 @@
   </div> <!-- end of managed causes -->
   <div class="col s6">
     <div class="causes-container">
-    <h4 class="center">Causes You Support</h4>
+    <h4 class="center">Causes Supported</h4>
       <ul id="causes-supported">
         <%= render partial: "users/causes_supported", collection: @user.supported_causes %>
       </ul>
