@@ -1,8 +1,10 @@
-<%= link_to category_path(category) do %>
-    <div class="col s4">
-      <div class="card-panel indigo lighten-5 center">
-        <span class="colored"><%= category.title %>
-        </span>
+<div class="fades<%= category.id $ 3 %>">
+  <%= link_to category_path(category) do %>
+      <div class="col s4">
+        <div class="card-panel indigo lighten-5 center">
+          <span class="colored"><%= category.title %>
+          </span>
+        </div>
       </div>
-    </div>
-<% end %>
+  <% end %>
+</div>

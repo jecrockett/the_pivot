@@ -15,6 +15,7 @@
 
 //= require_tree .
 $(document).ready(function(){
+  $('.fades').delay( 2000 ).fadeTo('slow', 1);
+  $('.fades1').delay( 2000 ).fadeTo('slow', 1);
   $('.slider').slider({full_width: true});
 });
-    
