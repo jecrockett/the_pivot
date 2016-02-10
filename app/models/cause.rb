@@ -10,6 +10,9 @@ class Cause < ActiveRecord::Base
   validates :user_id, presence: true
   validates :category_id, presence: true
 
+  # pagination setting
+  self.per_page = 6
+  
   def amount_raised
     cause_donations.sum(:amount) || 0
   end
