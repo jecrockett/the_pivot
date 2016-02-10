@@ -4,10 +4,8 @@
       <h2 class="col s12 center-align colored"> <%= @cause.title %></h2>
       <span>Dreamt By: <%= link_to "#{@cause.user.username}", user_path(@cause.user) %> </span>
       <% if current_user_id == @cause.user_id %>
-        <p id="admins">Other Admins: <%= get_other_admins(@cause)%></p>
-        <p id="cause-status">Current Status: <%= @cause.current_status.capitalize %>
-        </p>
-        <%= link_to "Edit Your Dream", edit_user_cause_path(@cause.user, @cause), class: "btn" %>
+        <span id="admins">Other Admins: <%= get_other_admins(@cause)%></span> <br>
+        <span> <%= link_to "Edit Your Dream", edit_user_cause_path(@cause.user, @cause), class: "btn" %></span>
         <%= link_to "Delete Dream", user_cause_path(@cause.user, @cause), method: :delete, class: "btn" %>
       <% end %>
     </div>
@@ -16,7 +14,6 @@
         <%= image_tag(@cause.image_url, class: "valign") %>
       </div>
       <p>
-        <br>
         <%= @cause.description %>
       </p>
     </div> <!-- end of img and description column -->
@@ -24,7 +21,7 @@
       <div class="cause-stats-container center row">
         <div class="col s6">
           <p>Supporters:</p>
-          <input value="<%= @cause.total_supporters %>" type="button" class="btn white-text" onClick="document.getElementById('cause_supporters').scrollIntoView();" />
+          <input value="<%= @cause.total_supporters %>" type="button" class="btn-floating white-text" onClick="document.getElementById('cause_supporters').scrollIntoView();" />
           <div id="amount-raised">
             <p>$ Raised:</p>
             <span><%= @cause.amount_raised %></span>
@@ -33,7 +30,7 @@
         <div class="col s6">
           <div id="donations-received">
             <p>Donations:</p>
-            <input value="Stats" type="button" class="btn white-text" onClick="document.getElementById('chart').scrollIntoView();" />
+            <input value="<%= @cause.donation_count %>" type="button" class="btn-floating white-text" onClick="document.getElementById('cause_supporters').scrollIntoView();" />
           </div>
 
           <p>Target Goal:</p>
@@ -47,14 +44,45 @@
           <%= f.text_field :amount %>
           <%= f.hidden_field :user_id, :value => current_user_id %>
           <%= f.hidden_field :cause_id, :value => @cause.id %>
+          <%= f.hidden_field :stripe_token %>
           <%= f.hidden_field :cause_name, :value => @cause.title %>
-          <%= f.submit "Fund This Dream", class: "wave-effect waves-light btn light-green darken-4" %>
+          <%= f.submit "Fund This Dream", class: "wave-effect waves-light btn light-green darken-4", id: "customButton" %>
         <% end  %>
       </div> <!-- end of donation form -->
     </div> <!-- end of second cause card column -->
   </div> <!-- end of card content -->
 </div> <!-- end of card row -->
+</script>
 <div id="chart">
   <h5 class="center">Funds Raised (<%= @cause.donation_count %> donations)</h5>
   <%= pie_chart({"Goal" => @cause.goal, "Raised" => @cause.amount_raised}) %>
 </div>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+<script>
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+    image: "<%= @cause.image_url %>",
+    locale: 'auto',
+    token: function(token) {
+      // Use the token to create the charge with a server-side script.
+      // You can access the token ID with `token.id`
+      console.log(token);
+      $("#donation_stripe_token").val(token.id)
+      $("#new_donation").trigger("submit.rails");
+    }
+  });
+
+  $('#customButton').on('click', function(e) {
+    // Open Checkout with further options
+    handler.open({
+      name: "<%= @cause.title %>",
+      amount: $("#donation_amount").val() * 100
+    });
+    e.preventDefault();
+  });
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function() {
+    handler.close();
+  });
