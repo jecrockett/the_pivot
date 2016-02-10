@@ -6,7 +6,7 @@
         <h3><%= @moon.title %></h3>
         <h5><%= @moon.description %></h5>
         <h5 class="light grey-text text-lighten-3">
-          <%= link_to "Donate", user_cause_path(@moon.user, @moon), class: "btn" %>
+          <%= link_to "Donate", user_cause_path(@moon.user.username, @moon), class: "btn" %>
         </h5>
       </div>
     </li>
@@ -16,7 +16,7 @@
         <h3><%= @squirrel.title %></h3>
         <h5 class="squirrel-description"><%= @squirrel.description %></h5>
         <h5 class="light grey-text text-lighten-3">
-          <%= link_to "Donate", user_cause_path(@squirrel.user, @squirrel), class: "btn" %>
+          <%= link_to "Donate", user_cause_path(@squirrel.user.username, @squirrel), class: "btn" %>
         </h5>
       </div>
     </li>
@@ -26,7 +26,7 @@
         <h3><%= @potato.title %></h3>
         <h5><%= @potato.description %></h5>
         <h5 class="light grey-text text-lighten-3">
-          <%= link_to "Donate", user_cause_path(@potato.user, @potato), class: "btn" %>
+          <%= link_to "Donate", user_cause_path(@potato.user.username, @potato), class: "btn" %>
         </h5>
       </div>
     </li>
@@ -36,7 +36,7 @@
         <h3><%= @ostrich.title %></h3>
         <h5><%= @ostrich.description %></h5>
         <h5 class="light grey-text text-lighten-3">
-          <%= link_to "Donate", user_cause_path(@ostrich.user, @ostrich), class: "btn" %>
+          <%= link_to "Donate", user_cause_path(@ostrich.user.username, @ostrich), class: "btn" %>
         </h5>
       </div>
     </li>

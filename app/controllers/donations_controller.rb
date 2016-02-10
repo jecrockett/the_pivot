@@ -5,7 +5,7 @@ class DonationsController < ApplicationController
     @donation = Donation.new(donation_params)
     if @donation.save
       flash[:success] = "Thank you for making this dream come true!"
-      redirect_to user_cause_path(@donation.cause.user, @donation.cause)
+      redirect_to user_cause_path(@donation.cause.user.username, @donation.cause)
     else
       @cause = Cause.find(params[:donation][:cause_id])
       flash.now[:error] = "Invalid donation, please try again"

@@ -13,12 +13,13 @@ class UserDoesNotSeeInactiveCausesTest < ActionDispatch::IntegrationTest
     refute page.has_content?(cause.title)
 
     log_in(user2)
-    visit user_cause_path(user1, cause)
+
+    visit user_cause_path(user1.username, cause)
     refute page.has_content?(cause.title)
 
     log_out
     log_in(user1)
-    visit user_cause_path(user1, cause)
+    visit user_cause_path(user1.username, cause)
     assert page.has_content?(cause.title)
   end
 end

@@ -9,13 +9,13 @@ class UserAndVisitorCanViewSupportersTest < ActionDispatch::IntegrationTest
     donation = user.causes.first.donations.first
 
     log_in(user)
-    visit user_cause_path(user, user.causes.first)
+    visit user_cause_path(user.username, user.causes.first)
 
     within('#cause_supporters') do
       assert page.has_content?(supporter.username)
     end
     log_out
-    visit user_cause_path(user, user.causes.first)
+    visit user_cause_path(user.username, user.causes.first)
 
     within('#cause_supporters') do
       assert page.has_content?(supporter.username)

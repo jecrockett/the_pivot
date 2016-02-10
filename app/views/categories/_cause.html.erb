@@ -8,7 +8,7 @@
       <p class="truncate"><%= cause.description %></p>
     </div>
     <div class="card-action">
-      <%= link_to "View this cause", user_cause_path(cause.user, cause) %>
+      <%= link_to "View this cause", user_cause_path(cause.user.username, cause) %>
     </div>
   </div>
 </div>
