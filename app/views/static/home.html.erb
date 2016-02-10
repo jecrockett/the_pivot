@@ -57,7 +57,7 @@
   <div class="col s4">
     <div class="center promo">
       <% if current_user %>
-        <%= link_to new_user_cause_path(current_user) do %>
+        <%= link_to new_user_cause_path(current_user.username) do %>
           <%= image_tag('http://i2.wp.com/lolzombie.com/wp-content/uploads/2013/06/197803_442446802513428_3302503_n.jpg?resize=500%2C386', class: "homepage-outer-img") %>
           <h6>Build Your Dream</h6>
           <p class="light center about-blurb">Remember when you were 4 and you wanted to ride your tricycle to the ocean? You can do that now.</p>

@@ -12,7 +12,7 @@
     <h3><%= @cause.title %></h3>
     <h6 class="center-text"><%= @cause.description %></h6>
     <h6 class="light grey-text text-lighten-3">
-      <%= link_to "Donate", user_cause_path(@cause.user, @cause), class: "btn" %>
+      <%= link_to "Donate", user_cause_path(@cause.user.username, @cause), class: "btn" %>
     </h6>
   </div>
 </div>

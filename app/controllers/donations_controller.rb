@@ -9,7 +9,7 @@ class DonationsController < ApplicationController
     else
       @cause = Cause.find(params[:donation][:cause_id])
       flash.now[:error] = "Invalid donation, please try again"
-      redirect_to user_cause_path(@cause.user, @cause)
+      redirect_to user_cause_path(@cause.user.username, @cause)
     end
   end
 
