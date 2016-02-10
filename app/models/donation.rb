@@ -4,6 +4,7 @@ class Donation < ActiveRecord::Base
   validates :user_id, presence: true
   validates :cause_id, presence: true
   validates :amount, presence: true, numericality: { only_integer: true }
+  validates :stripe_token, presence: true
 
   def username
     User.find(self.user_id).username

@@ -3,15 +3,18 @@ first:
   cause_id: 1
   cause_name: colonize_moon
   amount: 100
+  stripe_token: tok_17d5KG2eZvKYlo2CVqCp7FQl
 
 second:
   user_id: 2
   cause_id: 1
   cause_name: colonize_moon
   amount: 200
+  stripe_token: tok_17d5KG2eZvKYlo2CVqCp7FQl
 
 third:
   user_id: 3
   cause_id: 1
   cause_name: colonize_moon
   amount: 300
+  stripe_token: tok_17d5KG2eZvKYlo2CVqCp7FQl
