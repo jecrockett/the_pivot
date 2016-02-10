@@ -23,7 +23,7 @@ class RegisteredUserCanViewDonationsInProfileTest < ActionDispatch::IntegrationT
       stripe_token: "tok_17d5KG2eZvKYlo2CVqCp7FQl"
     )
 
-    visit user_cause_path(cause.user, cause)
+    visit user_cause_path(cause.user.username, cause)
     within '#amount-raised' do
       assert page.has_content?("159")
     end
