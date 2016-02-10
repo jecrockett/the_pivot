@@ -20,7 +20,7 @@
                 <td><%= donation.created_at.to_s.split(' ').first %></td>
                 <td>$<%= donation.amount %></td>
                 <td><%= link_to Cause.find(donation.cause_id).title,
-                        user_cause_path(Cause.find(donation.cause_id).user,
+                        user_cause_path(Cause.find(donation.cause_id).user.username,
                         Cause.find(donation.cause_id), class: 'blue-text')%></td>
                 <td><%= User.find(donation.user_id).username %></td>
               </tr>
@@ -35,11 +35,11 @@
         <div class="collection">
           <% @pending_causes.each do |cause| %>
           <div class="collection-item <%= cause.title.delete(' ') %>">
-            <%= link_to cause.title, user_cause_path(cause.user, cause),
+            <%= link_to cause.title, user_cause_path(cause.user.username, cause),
                 class: "collection-item" %>
-            <%= link_to "Accept", user_cause_path(cause.user, cause,
+            <%= link_to "Accept", user_cause_path(cause.user.username, cause,
                 "cause[current_status]" => "active"), method: :patch, class: "btn green" %>
-            <%= link_to "Reject", user_cause_path(cause.user, cause,
+            <%= link_to "Reject", user_cause_path(cause.user.username, cause,
                 "cause[current_status]" => "inactive"), method: :patch, class: "btn red" %>
           </div>
           <br>

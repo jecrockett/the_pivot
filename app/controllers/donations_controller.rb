@@ -14,7 +14,7 @@ class DonationsController < ApplicationController
 
     # Get the credit card details submitted by the form
     token = @donation.stripe_token
-  
+
     # Create the charge on Stripe's servers - this will charge the user's card
     begin
       charge = Stripe::Charge.create(
@@ -26,12 +26,12 @@ class DonationsController < ApplicationController
       flash[:danger] = "This card has been declined"
     end
     if @donation.save
-      flash[:notice] = "Thank you for making this dream come true!"
-      redirect_to user_cause_path(@donation.cause.user, @donation.cause)
+      flash[:success] = "Thank you for making this dream come true!"
+      redirect_to user_cause_path(@donation.cause.user.username, @donation.cause)
     else
       @cause = Cause.find(params[:donation][:cause_id])
-      flash.now[:danger] = "Invalid donation, please try again"
-      redirect_to user_cause_path(@cause.user, @cause)
+      flash.now[:error] = "Invalid donation, please try again"
+      redirect_to user_cause_path(@cause.user.username, @cause)
     end
   end
 

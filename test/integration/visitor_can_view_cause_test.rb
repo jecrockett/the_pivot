@@ -5,7 +5,7 @@ class VisitorCanViewCauseTest < ActionDispatch::IntegrationTest
     user = users(:carl)
     cause = causes(:cereal_machine)
 
-    visit user_cause_path(user, cause)
+    visit user_cause_path(user.username, cause)
 
     assert page.has_content?("#{cause.title}")
     assert page.has_content?("#{cause.description}")

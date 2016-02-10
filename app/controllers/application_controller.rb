@@ -17,11 +17,19 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if session[:user_id]
+      @current_user ||= User.find(session[:user_id])
+    else
+      @current_user = nil
+    end
   end
 
   def current_user_id
     current_user ? current_user.id : nil
+  end
+
+  def current_user_username
+    current_user ? current_user.username : nil
   end
 
   def current_user_guard
@@ -45,7 +53,7 @@ class ApplicationController < ActionController::Base
   # end
 
   def cause_owner?
-    params[:user].to_i == current_user_id
+    params[:user] == current_user_username
   end
 
   def backfill_donations(cause)

@@ -6,7 +6,7 @@
         <h3><%= @moon.title %></h3>
         <h5><%= @moon.description %></h5>
         <h5 class="light grey-text text-lighten-3">
-          <%= link_to "Donate", user_cause_path(@moon.user, @moon), class: "btn" %>
+          <%= link_to "Donate", user_cause_path(@moon.user.username, @moon), class: "btn" %>
         </h5>
       </div>
     </li>
@@ -16,7 +16,7 @@
         <h3><%= @squirrel.title %></h3>
         <h5 class="squirrel-description"><%= @squirrel.description %></h5>
         <h5 class="light grey-text text-lighten-3">
-          <%= link_to "Donate", user_cause_path(@squirrel.user, @squirrel), class: "btn" %>
+          <%= link_to "Donate", user_cause_path(@squirrel.user.username, @squirrel), class: "btn" %>
         </h5>
       </div>
     </li>
@@ -26,7 +26,7 @@
         <h3><%= @potato.title %></h3>
         <h5><%= @potato.description %></h5>
         <h5 class="light grey-text text-lighten-3">
-          <%= link_to "Donate", user_cause_path(@potato.user, @potato), class: "btn" %>
+          <%= link_to "Donate", user_cause_path(@potato.user.username, @potato), class: "btn" %>
         </h5>
       </div>
     </li>
@@ -36,7 +36,7 @@
         <h3><%= @ostrich.title %></h3>
         <h5><%= @ostrich.description %></h5>
         <h5 class="light grey-text text-lighten-3">
-          <%= link_to "Donate", user_cause_path(@ostrich.user, @ostrich), class: "btn" %>
+          <%= link_to "Donate", user_cause_path(@ostrich.user.username, @ostrich), class: "btn" %>
         </h5>
       </div>
     </li>
@@ -57,14 +57,14 @@
   <div class="col s4">
     <div class="center promo">
       <% if current_user %>
-        <%= link_to new_user_cause_path(current_user) do %>
-          <%= image_tag('http://i2.wp.com/lolzombie.com/wp-content/uploads/2013/06/197803_442446802513428_3302503_n.jpg?resize=500%2C386', class: "homepage-outer-img") %>
+        <%= link_to new_user_cause_path(current_user.username) do %>
+          <%= image_tag('left-promo.png', class: "homepage-outer-img") %>
           <h6>Build Your Dream</h6>
           <p class="light center about-blurb">Remember when you were 4 and you wanted to ride your tricycle to the ocean? You can do that now.</p>
         <% end %>
       <% else %>
         <%= link_to new_user_path do %>
-          <%= image_tag('http://i2.wp.com/lolzombie.com/wp-content/uploads/2013/06/197803_442446802513428_3302503_n.jpg?resize=500%2C386', class: "homepage-outer-img") %>
+          <%= image_tag('left-promo.png', class: "homepage-outer-img") %>
           <h6>Build Your Dream</h6>
           <p class="light center about-blurb">Remember when you were 4 and you wanted to ride your tricycle to the ocean? You can do that now.</p>
         <% end %>
@@ -74,7 +74,7 @@
   <div class="col s4">
     <div class="center promo">
       <%= link_to categories_path do %>
-        <%= image_tag('http://wallpapercave.com/wp/6UGe1vL.png', class: "homepage-outer-img") %>
+        <%= image_tag('center-promo.png', class: "homepage-outer-img") %>
         <h6>Support A Dream</h6>
         <p class="light center about-blurb">Be a hero. Make a difference. Help fellow dreamers reach never before seen heights.</p>
       <% end %>
@@ -84,13 +84,13 @@
     <div class="center promo">
       <% if current_user %>
         <%= link_to categories_path do %>
-          <%= image_tag('https://pbs.twimg.com/media/BpBAYdyIQAEdSCg.png', class: "homepage-outer-img") %>
+          <%= image_tag('right-promo.png', class: "homepage-outer-img") %>
           <h6>Need Inspiration? Explore A Dream</h6>
           <p class="light center about-blurb">Our community of Dreamers have over 1,000 dreams in progress. Let them drop some dream knowledge on you.</p>
         <% end %>
       <% else %>
         <%= link_to new_user_path do %>
-          <%= image_tag('https://pbs.twimg.com/media/BpBAYdyIQAEdSCg.png', class: "homepage-outer-img") %>
+          <%= image_tag('right-promo.png', class: "homepage-outer-img") %>
           <h6>Join The Dreamers Community</h6>
           <p class="light center about-blurb">Our Dreamers made the legendary Clapper a reality. You know you want a piece of that action.</p>
         <% end %>
