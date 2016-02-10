@@ -5,7 +5,7 @@ class CauseOwnerCanAddAnotherCauseAdminTest < ActionDispatch::IntegrationTest
     user1 = users(:carl)
     user2 = users(:bernie)
     log_in(user1)
-    visit user_cause_path(user1, user1.causes.first)
+    visit user_cause_path(user1.username, user1.causes.first)
 
     within('#admins') do
       refute page.has_content?("#{user2.username}")

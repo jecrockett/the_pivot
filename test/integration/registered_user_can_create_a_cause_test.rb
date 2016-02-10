@@ -13,7 +13,7 @@ class RegisteredUserCanCreateACauseTest < ActionDispatch::IntegrationTest
     select "Tech", from: "cause[category_id]"
     click_on "Submit"
 
-    assert_equal user_cause_path(user, Cause.last), current_path
+    assert_equal user_cause_path(user.username, Cause.last), current_path
     assert "Tech", Cause.last.category
     assert page.has_content?("Robot Dogs")
   end

@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
+    current_user
     redirect_to root_path
   end
 

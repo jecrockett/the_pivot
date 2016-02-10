@@ -7,8 +7,8 @@
         <p id="admins">Other Admins: <%= get_other_admins(@cause)%></p>
         <p id="cause-status">Current Status: <%= @cause.current_status.capitalize %>
         </p>
-        <%= link_to "Edit Your Dream", edit_user_cause_path(@cause.user, @cause), class: "btn" %>
-        <%= link_to "Delete Dream", user_cause_path(@cause.user, @cause), method: :delete, class: "btn" %>
+        <%= link_to "Edit Your Dream", edit_user_cause_path(@cause.user.username, @cause), class: "btn" %>
+        <%= link_to "Delete Dream", user_cause_path(@cause.user.username, @cause), method: :delete, class: "btn" %>
       <% end %>
     </div>
     <div class="cause-info-container col s8">

@@ -19,7 +19,7 @@ class Users::CausesController < ApplicationController
     if @cause.save
       @cause.other_admins << params[:cause][:other_admins]
       flash[:success] = "You dreamt about a #{@cause.title}"
-      redirect_to user_cause_path(current_user, @cause)
+      redirect_to user_cause_path(current_user.username, @cause)
     else
       flash.now[:error] = "Uh oh! You're not done dreaming. :`("
       render :new
@@ -36,7 +36,7 @@ class Users::CausesController < ApplicationController
     if URI(request.referrer).path == admin_dashboard_path
       redirect_to admin_dashboard_path
     else
-      redirect_to user_cause_path(@cause.user, @cause)
+      redirect_to user_cause_path(@cause.user.username, @cause)
     end
   end
 
@@ -44,7 +44,7 @@ class Users::CausesController < ApplicationController
     cause = current_user.causes.find(params[:id])
     backfill_donations(cause)
     cause.delete
-    redirect_to user_path(User.find(params[:user]))
+    redirect_to user_path(User.find_by(username: params[:user]))
   end
 
   private
