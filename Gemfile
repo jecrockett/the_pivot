@@ -11,6 +11,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 gem "chartkick"
+gem 'will_paginate-materialize'
+gem 'will_paginate'
 gem "stripe"
 
 group :development, :test do
