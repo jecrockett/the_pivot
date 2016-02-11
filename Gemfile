@@ -16,7 +16,6 @@ gem "twitter"
 gem 'will_paginate-materialize'
 gem 'will_paginate'
 gem "stripe"
-gem "figaro"
 gem "gon"
 
 group :development, :test do
