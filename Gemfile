@@ -13,6 +13,9 @@ gem 'faker'
 gem "chartkick"
 gem "omniauth-twitter"
 gem "twitter"
+gem 'will_paginate-materialize'
+gem 'will_paginate'
+gem "stripe"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
