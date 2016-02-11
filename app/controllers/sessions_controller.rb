@@ -1,5 +1,3 @@
-require 'JSON'
-
 class SessionsController < ApplicationController
   after_action :clear_attempted_donation, only: [:create]
 
