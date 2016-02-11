@@ -57,7 +57,7 @@
 </script>
 <div id="chart">
   <h5 class="center">Funds Raised (<%= @cause.donation_count %> donations)</h5>
-  <%= pie_chart({"Goal" => @cause.goal, "Raised" => @cause.amount_raised}) %>
+  <%= pie_chart({"Goal" => @cause.goal-@cause.amount_raised, "Raised" => @cause.amount_raised}) %>
 </div>
 
 <script src="https://checkout.stripe.com/checkout.js"></script>
