@@ -1,5 +1,6 @@
 class Users::CausesController < ApplicationController
-  before_action :valid_cause_owner?, only: [:edit, :update, :destroy]
+  before_action :valid_cause_owner?, only: [:edit, :destroy]
+  before_action :valid_update?, only: [:update]
 
   def show
     redirect_to root_path unless show_cause?
@@ -27,7 +28,7 @@ class Users::CausesController < ApplicationController
   end
 
   def edit
-    @cause = current_user.causes.find(params[:id])
+    @cause = Cause.find(params[:id])
   end
 
   def update
@@ -62,11 +63,22 @@ class Users::CausesController < ApplicationController
 
     def valid_cause_owner?
       cause = Cause.find(params[:id])
-      redirect_to root_path unless (current_user_id == cause.user_id) || (current_user.role == 'admin')
+      redirect_to root_path unless cause_owner? || (current_user.role == 'admin')
+    end
+
+    def valid_update?
+      cause = Cause.find(params[:id])
+      redirect_to root_path unless approved? || (current_user.role == 'admin')
+    end
+
+    def approved?
+      params[:user].to_i == current_user_id || secondary_admin
     end
 
     def update_cause_attribues
-      @cause.update_attributes(cause_params)
+      data = cause_params
+      data[:user_id] = "#{@cause.user.id}"
+      @cause.update_attributes(data)
       admins = @cause.other_admins.concat([params[:cause][:other_admins]])
       @cause.update_column(:other_admins, admins) if email_found?
     end

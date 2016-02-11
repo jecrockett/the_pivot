@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class CauseOwnerCanAddAnotherCauseAdminTest < ActionDispatch::IntegrationTest
+
+  def setup
+    featured_cause_user!
+    create_featured_causes!
+  end
+
   test "cause owner can add another user as a cause admin" do
     user1 = users(:carl)
     user2 = users(:bernie)
@@ -18,6 +24,12 @@ class CauseOwnerCanAddAnotherCauseAdminTest < ActionDispatch::IntegrationTest
     within('#admins') do
       assert page.has_content?("#{user2.username}")
     end
+
+    log_out
+    log_in(user2)
+    visit user_cause_path(user1.username, user1.causes.first)
+
+    assert page.has_content?('Edit Your Dream')
   end
 
   test "invalid emails do not add admins" do
