@@ -80,12 +80,20 @@ GEM
       thor (~> 0.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+<<<<<<< HEAD
     hashie (3.4.3)
     http (1.0.2)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
       http-form_data (~> 1.0.1)
       http_parser.rb (~> 0.6.0)
+=======
+    gon (6.0.1)
+      actionpack (>= 3.0)
+      json
+      multi_json
+      request_store (>= 1.0)
+>>>>>>> master
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     http-form_data (1.0.1)
@@ -165,6 +173,7 @@ GEM
     rake (10.5.0)
     rdoc (4.2.1)
       json (~> 1.4)
+    request_store (1.3.0)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -247,7 +256,11 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails (~> 4.0)
   faker
+<<<<<<< HEAD
   figaro
+=======
+  gon
+>>>>>>> master
   jbuilder (~> 2.0)
   jquery-rails
   launchy
