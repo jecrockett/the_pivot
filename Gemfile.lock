@@ -80,20 +80,17 @@ GEM
       thor (~> 0.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-<<<<<<< HEAD
+    gon (6.0.1)
+      actionpack (>= 3.0)
+      json
+      multi_json
+      request_store (>= 1.0)
     hashie (3.4.3)
     http (1.0.2)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
       http-form_data (~> 1.0.1)
       http_parser.rb (~> 0.6.0)
-=======
-    gon (6.0.1)
-      actionpack (>= 3.0)
-      json
-      multi_json
-      request_store (>= 1.0)
->>>>>>> master
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     http-form_data (1.0.1)
@@ -256,11 +253,8 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails (~> 4.0)
   faker
-<<<<<<< HEAD
   figaro
-=======
   gon
->>>>>>> master
   jbuilder (~> 2.0)
   jquery-rails
   launchy
@@ -283,4 +277,4 @@ DEPENDENCIES
   will_paginate-materialize
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
