@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/about", to: "static#about"
-
+  get "/auth/twitter", as: :twitter_login
+  get "/auth/twitter/callback", to: "sessions#create"
+  resources :tweets, only: [:new, :create]
   root "static#home"
 end

@@ -205,11 +205,22 @@ a:hover {
 
 .cause-donated {
   height: 35px;
-  font-size: 10px;
+  font-size: 14px;
   margin: 0 auto;
   margin-bottom: 5px;
   width: 95%;
   background: antiquewhite;
+  div span {
+    position: relative;
+    top: 7px;
+  }
+}
+
+.twitter-logo {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  top: 7px;
 }
 
 .causes-container {
@@ -228,17 +239,24 @@ a:hover {
 }
 
 .cause-funds {
-  font-size: 12px;
   position: absolute;
-  bottom: 0px;
-  left: 185px;
-  span {
-    font-size: 15px;
-  }
+  bottom: -5px;
+  left: 195px;
   p {
     display: inline-block;
-    padding-right: 15px;
+    padding-right: 20px;
+    font-size: 12px;
+    span {
+      font-size: 15px;
+    }
   }
+}
+
+.tweet-managed-cause {
+  font-size: 12px;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
 }
 
 .top-space {

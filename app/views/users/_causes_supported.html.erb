@@ -1,29 +1,13 @@
-<!-- <%= link_to user_cause_path(causes_supported.user.username, causes_supported) do %>
-  <li class="card cause row">
-    <div class="cause-img-container valign-wrapper col s3">
-      <%= image_tag(causes_supported.image_url) %>
-    </div>
-    <div class="col s9 row">
-      <h6 class="col s12">
-        <%= causes_supported.title %>
-      </h6>
-      <p class="col s8 left-align">
-        <%= causes_supported.description %>
-      </p>
-      <div class="cause-funds col s4">
-        <span><%= causes_supported.amount_raised %> </span>
-      </div>
-    </div>
-  </li>
-<% end %> -->
-
-<%= link_to user_cause_path(causes_supported.user.username, causes_supported) do %>
   <li class="card cause-donated row">
-      <h6 class="col s6 offset-s2 truncate">
-        <%= causes_supported.title %>
-      </h6>
-      <div class="cause-funds col s2">
+    <%= link_to user_cause_path(causes_supported.user.username, causes_supported) do %>
+      <div class="col s2">
         <span>$<%= causes_supported.amount_raised %> </span>
       </div>
+      <h6 class="truncate col s6">
+        <%= causes_supported.title %>
+      </h6>
+    <% end %>
+    <div class="col s1 push-s3">
+      <%= link_to image_tag('/assets/twitter-128.png', class: "twitter-logo"), new_tweet_path(cause_type: "supported", cause_id: causes_supported.id) %>
+    </div>
   </li>
-<% end %>

@@ -13,5 +13,8 @@
       <p>Raised: <span> <%= causes_managed.amount_raised %></span>
       <p>Goal: <span><%= causes_managed.goal %></span></p>
     </div>
+    <div class="tweet-managed-cause">
+      <%= link_to image_tag('/assets/twitter-128.png', class: "twitter-logo"), new_tweet_path(cause_type: "managed", cause_id: causes_managed.id) %>
+    </div>
   </li>
 <% end %>
