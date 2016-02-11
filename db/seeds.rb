@@ -84,12 +84,29 @@ class Seed
     password_digest: User.digest('password'),
     role: 1
     )
+    User.create!(
+    username:     'jorge',
+    email:    'jorge@turing.io',
+    password_digest: User.digest('password'),
+    role: 1
+    )
+    User.create!(
+    username:     'andrew',
+    email:    'andrew@turing.io',
+    password_digest: User.digest('password'),
+    role: 1
+    )
   end
 
   def featured_cause_user
     User.create!(
     username:     'mike_dao',
     email:    'mike_dao@dreambuilder.com',
+    password_digest: User.digest('password'),
+    )
+    User.create!(
+    username:     'josh',
+    email:    'josh@turing.io',
     password_digest: User.digest('password'),
     )
   end

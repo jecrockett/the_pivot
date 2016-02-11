@@ -52,8 +52,12 @@ class ApplicationController < ActionController::Base
   #   Cause.where(category_id: params[:id], current_status: "active")
   # end
 
+  def secondary_admin
+    Cause.find(params[:id]).other_admins.include?(current_user.email) if current_user
+  end
+
   def cause_owner?
-    params[:user] == current_user_username
+    params[:user] == current_user_username || secondary_admin
   end
 
   def backfill_donations(cause)
