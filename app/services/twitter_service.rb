@@ -3,8 +3,8 @@ class TwitterService
 
   def initialize(user)
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key = "8x5wY37A5vQUjwtjhYWXFtiZD"
-      config.consumer_secret = "0ERUe8uHBh5SLT5IdlkogKbxcfjSCsUAHAlF5qLFHxbdoCAntX"
+      config.consumer_key = ENV["twitter_consumer_key"]
+      config.consumer_secret = ENV["twitter_consumer_secret"]
       config.access_token = 	user.oauth_token
       config.access_token_secret = user.oauth_token_secret
     end
