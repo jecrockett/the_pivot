@@ -7,7 +7,7 @@
         <%= causes_supported.title %>
       </h6>
     <% end %>
-    <div class="col s1 push-s2">
-      <%= link_to "Tweet!", new_tweet_path(cause_type: "supported", cause_id: causes_supported.id) %>
+    <div class="col s1 push-s3">
+      <%= link_to image_tag('/assets/twitter-128.png', class: "twitter-logo"), new_tweet_path(cause_type: "supported", cause_id: causes_supported.id) %>
     </div>
   </li>
