@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
       if params["cause_type"] == "supported"
         "I donated to #{cause.title} on DreamBuilder.com!"
       elsif  params["cause_type"] == "managed"
-        "Help me reach my dream! Support #{cause.title} on DreamBuilder.com!"
+        "Help #{cause.title} become a reality on DreamBilder.com!"
       else
         ""
       end
