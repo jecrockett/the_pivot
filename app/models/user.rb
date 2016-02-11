@@ -20,4 +20,16 @@ class User < ActiveRecord::Base
       Cause.find(donation.cause_id)
     end
   end
+
+  def self.from_omniauth(auth_info)
+    where(id: auth_info[:uid]).first_or_create do |new_user|
+      new_user.id = auth_info.uid
+      new_user.username = auth_info.extra.raw_info.screen_name
+      new_user.email = auth_info.info.email
+      new_user.email = "#{new_user.username}@dreambuilder.com" if new_user.email.nil?
+      new_user.password_digest = SecureRandom.base64
+      new_user.oauth_token = auth_info.credentials.token
+      new_user.oauth_token_secret = auth_info.credentials.secret
+    end
+  end
 end
