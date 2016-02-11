@@ -42,9 +42,9 @@ class Users::CausesController < ApplicationController
   end
 
   def destroy
-    cause = current_user.causes.find(params[:id])
-    backfill_donations(cause)
-    cause.delete
+    @cause = Cause.find(params[:id])
+    backfill_donations(@cause)
+    @cause.delete
     redirect_to user_path(User.find_by(username: params[:user]))
   end
 
