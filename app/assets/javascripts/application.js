@@ -17,9 +17,9 @@
 $(document).ready(function(){
   $('.slider').slider({full_width: true});
 
-  $('.fades1').delay( 500 ).fadeTo('slow', 1);
-  $('.fades2').delay( 1200 ).fadeTo('slow', 1);
-  $('.fades0').delay( 1800 ).fadeTo('slow', 1);
+  $('.fades1').delay( 200 ).fadeTo('slow', 1);
+  $('.fades2').delay( 700 ).fadeTo('slow', 1);
+  $('.fades0').delay( 1200 ).fadeTo('slow', 1);
 
   dreams = function(i){
     return function(){
