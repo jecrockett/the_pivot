@@ -38,9 +38,11 @@ class UsersController < ApplicationController
   def destroy
     user = current_user
     holder = User.find_by(email: "gone@heaven.com")
+
     backfill_causes(user)
     user.delete
     session.clear
+
     redirect_to root_path
   end
 

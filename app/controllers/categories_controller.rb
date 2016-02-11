@@ -11,7 +11,6 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    # pagination
     @causes = (Cause.active_causes_for_category(params)).paginate(:page => params[:page]).order('id ASC')
   end
 end
