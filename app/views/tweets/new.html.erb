@@ -1,0 +1,9 @@
+<h2 class="center">Tell the world!</h2>
+
+<div class="container">
+  <%= form_for(@tweet, url: tweets_path) do |f| %>
+    <%= f.label :content %>
+    <%= f.text_field :content, value: @value %>
+    <%= f.submit "Post" %>
+  <% end %>
+</div>
