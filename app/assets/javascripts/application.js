@@ -15,7 +15,44 @@
 
 //= require_tree .
 $(document).ready(function(){
-  $('.fades').delay( 2000 ).fadeTo('slow', 1);
-  $('.fades1').delay( 2000 ).fadeTo('slow', 1);
   $('.slider').slider({full_width: true});
+
+  $('.fades1').delay( 500 ).fadeTo('slow', 1);
+  $('.fades2').delay( 1200 ).fadeTo('slow', 1);
+  $('.fades0').delay( 1800 ).fadeTo('slow', 1);
+
+  // $('.cat-card').hover(function(){
+  //   $(this).text("I'm replaced!");
+  //   }, function() {
+  //   $(this).text("Replace me please");
+  // });
+
+
+  $('.cat1').hover(
+    function() {
+        var $this = $(this); // caching $(this)
+        var donations = gon.amount
+        $this.data('initialText', $this.text());
+        $this.text([gon.amount[0] + ' Dreams']);
+    },
+    function() {
+        var $this = $(this); // caching $(this)
+        $this.text($this.data('initialText'));
+    });
+
+    $('.cat2').hover(
+      function() {
+          var $this = $(this); // caching $(this)
+          var donations = gon.amount
+          $this.data('initialText', $this.text());
+          $this.text([gon.amount[1] + ' Dreams']);
+      },
+      function() {
+          var $this = $(this); // caching $(this)
+          $this.text($this.data('initialText'));
+      });
+
+
+
+
 });

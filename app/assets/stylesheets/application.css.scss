@@ -4,12 +4,11 @@ body {
   font-family: "Montserrat";
   cursor: url('cursor2.png'), default;
 }
-.fades {
+
+.fades0, .fades2, .fades1 {
   opacity: 0;
 }
-.fades1 {
-  opacity: 0;
-}
+
 h1, h2, h3, h4, h5, h6 {
   color: darkslategray;
 }
