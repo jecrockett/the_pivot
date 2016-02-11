@@ -19,4 +19,23 @@ class CauseOwnerCanAddAnotherCauseAdminTest < ActionDispatch::IntegrationTest
       assert page.has_content?("#{user2.username}")
     end
   end
+
+  test "invalid emails do not add admins" do
+    user1 = users(:carl)
+    log_in(user1)
+    visit user_cause_path(user1.username, user1.causes.first)
+
+    within('#admins') do
+      assert page.has_content?("None")
+    end
+
+    click_on "Edit Your Dream"
+    fill_in "Add another dream admin (enter a user's email)", with: "fakefake@liar.com"
+    click_on "Submit"
+
+    within('#admins') do
+      assert page.has_content?("None")
+      refute page.has_content?("fakefake@liar.com")
+    end
+  end
 end

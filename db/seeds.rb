@@ -1,11 +1,11 @@
 class Seed
   def initialize
     generate_users
+    generate_specific_users
     generate_categories
     generate_causes
     generate_donations
     generate_pending_causes
-    generate_specific_users
     featured_cause_user
     deleted_user_placeholder
     deleted_cause_placeholder
@@ -28,7 +28,7 @@ class Seed
   def generate_users
     120.times do |i|
       user = User.create!(
-        username:     Faker::Name.name,
+        username:     Faker::Name.first_name,
         email:    Faker::Internet.email,
         password_digest: User.digest('password'),
         )
@@ -42,7 +42,7 @@ class Seed
       title: Faker::Commerce.product_name,
       description: Faker::Lorem.paragraph(10),
       image_url: Faker::Avatar.image,
-      goal: rand(100..100000),
+      goal: rand(100..10000),
       user_id: User.pluck(:id).sample,
       category_id: Category.pluck(:id).sample,
       current_status: 'active'
@@ -116,13 +116,14 @@ class Seed
 
   def generate_donations
     User.all.each do |user|
-      10.times do |i|
+      15.times do |i|
         cause_id = Cause.pluck(:id).sample
         cause_title = Cause.find(cause_id).title
         user.donations.create(amount: rand(1..200),
-                              user_id: User.pluck(:id).sample,
+                              user_id: user.id,
                               cause_id: cause_id,
-                              cause_name: cause_title)
+                              cause_name: cause_title,
+                              stripe_token: "tok_17d5KG2eZvKYlo2CVqCp7FQl")
         puts "#{user.username} donated to #{cause_title}!"
       end
     end
